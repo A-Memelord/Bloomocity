@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "com.unity.ai.navigation": {
-      "version": "2.0.9",
+      "version": "2.0.4",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -56,7 +56,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.ide.rider": {
-      "version": "3.0.38",
+      "version": "3.0.31",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -104,13 +104,13 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
-<<<<<<< HEAD
     "com.unity.nuget.newtonsoft-json": {
       "version": "3.2.2",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
-=======
+      "url": "https://packages.unity.com"
+    },
     "com.unity.probuilder": {
       "version": "6.0.7",
       "depth": 0,
@@ -121,7 +121,6 @@
         "com.unity.modules.physics": "1.0.0",
         "com.unity.settings-manager": "1.0.3"
       },
->>>>>>> 216b200f1c959fc71978646f9029f4aabdbcbf06
       "url": "https://packages.unity.com"
     },
     "com.unity.render-pipelines.core": {
