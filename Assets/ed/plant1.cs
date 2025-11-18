@@ -21,20 +21,24 @@ public class plant1 : MonoBehaviour
 
     public IEnumerator grow()
     {
-        two.transform.Rotate(new Vector3(Random.Range(-45, 45), Random.Range(-45, 45), Random.Range(-45, 45)));
+        float difference = Random.Range(0.1f, 0.2f);
+        float growth = Random.Range(0.5f, 0.8f);
 
-        float difference = Random.Range(1f, 2f);
         for (float t = 0f; t < 1; t += Time.deltaTime * difference)
         {
-            one.transform.localScale = new Vector3(1, Mathf.Lerp(one.transform.localScale.y, difference, t), 1);
+            one.transform.localScale = new Vector3(1, Mathf.Lerp(0, growth, t), 1);
+            Debug.Log(Time.deltaTime * difference);
             yield return new WaitForEndOfFrame();
         }
-        one.transform.localScale = new Vector3(1, difference, 3);
+        //one.transform.localScale = new Vector3(1, difference, 1);
 
-        float difference2 = Random.Range(1f, 2f);
+        two.transform.Rotate(new Vector3(Random.Range(-45, 45), Random.Range(-45, 45), Random.Range(-45, 45)));
+        float difference2 = Random.Range(0.1f, 0.2f);
+        float growth2 = Random.Range(0.5f, 0.8f);
+
         for (float t = 0f; t < 1; t += Time.deltaTime * difference2)
         {
-            two.transform.localScale = new Vector3(1, Mathf.Lerp(two.transform.localScale.y, difference2, t), 1);
+            two.transform.localScale = new Vector3(1, Mathf.Lerp(0, growth2, t), 1);
             yield return new WaitForEndOfFrame();
         }
         //two.transform.localScale = new Vector3(1, final_two_scale, 1);
@@ -48,6 +52,8 @@ public class plant1 : MonoBehaviour
             new_plant_part.transform.localScale = new Vector3(1, 1, 1);
             new_plant_part.transform.rotation = three.transform.rotation;
             new_plant_part.transform.position = three.transform.position;
+            new_plant_part.GetComponent<plant1>().one.transform.localScale = new Vector3(1, 0.01f, 1);
+            new_plant_part.GetComponent<plant1>().two.transform.localScale = new Vector3(1, 0f, 1);
         }
     }
 }

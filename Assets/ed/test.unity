@@ -127,6 +127,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2681928949651798128, guid: 44de772260d9c3f4fbb06111a1878e32, type: 3}
+      propertyPath: plantpart
+      value: 
+      objectReference: {fileID: 8346523316295052394, guid: 44de772260d9c3f4fbb06111a1878e32, type: 3}
     - target: {fileID: 5271673681682382620, guid: 44de772260d9c3f4fbb06111a1878e32, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -393,7 +397,7 @@ Transform:
   m_GameObject: {fileID: 1828066232}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: 0, y: 1, z: -41}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
