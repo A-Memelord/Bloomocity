@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class plant1 : MonoBehaviour
 {
@@ -14,20 +15,18 @@ public class plant1 : MonoBehaviour
     public int grow_count = 5;
 
     public bool is_root = true;
+
+    public List<Vector3> root_plant_data;
     void Start()
     {
         if (is_root)
         {
             root = this.gameObject;
+            add_data(transform.position);
         }
         StartCoroutine(grow());
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public IEnumerator grow()
     {
@@ -40,11 +39,12 @@ public class plant1 : MonoBehaviour
             for (float t = 0f; t < 1; t += Time.deltaTime * difference)
             {
                 one.transform.localScale = new Vector3(1, Mathf.Lerp(0, growth, t), 1);
-                Debug.Log(Time.deltaTime * difference);
                 yield return new WaitForEndOfFrame();
             }
+            root.GetComponent<plant1>().add_data(one.transform.position);
 
             two.transform.rotation = Quaternion.Euler(Random.Range(-45, 45), Random.Range(-45, 45), Random.Range(-45, 45));
+            root.GetComponent<plant1>().add_data(two.transform.eulerAngles);
             float difference2 = Random.Range(0.1f, 0.2f);
             float growth2 = Random.Range(0.5f, 0.8f);
             bool wall = false;
@@ -64,6 +64,7 @@ public class plant1 : MonoBehaviour
                 two.transform.localScale = new Vector3(1, Mathf.Lerp(0, growth2, t), 1);
                 yield return new WaitForEndOfFrame();
             }
+            root.GetComponent<plant1>().add_data(one.transform.position);
 
             if (root.GetComponent<plant1>().grow_count != 0)
             {
@@ -85,5 +86,10 @@ public class plant1 : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void add_data(Vector3 data)
+    {
+        root_plant_data.Add(data);
     }
 }
