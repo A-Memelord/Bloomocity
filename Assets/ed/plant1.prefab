@@ -45,10 +45,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87550e524e5a256429e432e339842b20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  model: {fileID: 3685835233474836612}
+  armature: {fileID: 3388853476785694152}
   plantpart: {fileID: 8346523316295052394}
   one: {fileID: 1258652338267788626}
   two: {fileID: 6231298417512300717}
   three: {fileID: 1618217872687973223}
+  root: {fileID: 0}
+  grow_count: 5
+  is_root: 1
 --- !u!1001 &5666098106136615159
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -210,6 +215,16 @@ GameObject:
 --- !u!1 &1618217872687973223 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -2821761757288588400, guid: 7ba878fd4e85afb4484eca0caa8bc6d7, type: 3}
+  m_PrefabInstance: {fileID: 5666098106136615159}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3388853476785694152 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7036213049465896255, guid: 7ba878fd4e85afb4484eca0caa8bc6d7, type: 3}
+  m_PrefabInstance: {fileID: 5666098106136615159}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3685835233474836612 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9044549290020282483, guid: 7ba878fd4e85afb4484eca0caa8bc6d7, type: 3}
   m_PrefabInstance: {fileID: 5666098106136615159}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &5271673681682382620 stripped
