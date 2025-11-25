@@ -2,6 +2,8 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
+using Random = System.Random;
+
 public class plant1 : MonoBehaviour
 {
     public GameObject model;
@@ -14,9 +16,30 @@ public class plant1 : MonoBehaviour
     public GameObject root;
     public int grow_count = 5;
 
+    public int plantType = 1;
+    public int seed;
+
     public bool is_root = true;
 
     public List<Vector3> root_plant_data;
+    public Random random;
+
+    private void OnDestroy()
+    {
+        if (is_root)
+        {
+            SaveDataController.Instance.CurrentData.plantedPlants.Add(new PlantSaveData
+            {
+                plantType = this.plantType,
+                seed = this.seed,
+                pos = this.transform.position,
+                rot = this.transform.rotation,
+                scale = this.transform.localScale,
+                rootPlantData = root_plant_data
+            });
+        }
+    }
+
     void Start()
     {
         if (is_root)
@@ -24,17 +47,16 @@ public class plant1 : MonoBehaviour
             root = this.gameObject;
             add_data(transform.position);
         }
-        StartCoroutine(grow());
+        StartCoroutine(Grow());
     }
 
-
-    public IEnumerator grow()
+    public IEnumerator Grow()
     {
         if (root.GetComponent<plant1>().grow_count != 0)
         {
             root.GetComponent<plant1>().grow_count -= 1;
-            float difference = Random.Range(0.1f, 0.2f);
-            float growth = Random.Range(0.5f, 0.8f);
+            float difference = random.NextFloat(0.1f, 0.2f);
+            float growth = random.NextFloat(0.5f, 0.8f);
 
             for (float t = 0f; t < 1; t += Time.deltaTime * difference)
             {
@@ -43,10 +65,10 @@ public class plant1 : MonoBehaviour
             }
             root.GetComponent<plant1>().add_data(one.transform.position);
 
-            two.transform.rotation = Quaternion.Euler(Random.Range(-45, 45), Random.Range(-45, 45), Random.Range(-45, 45));
+            two.transform.rotation = Quaternion.Euler(random.NextFloat(-45, 45), random.NextFloat(-45, 45), random.NextFloat(-45, 45));
             root.GetComponent<plant1>().add_data(two.transform.eulerAngles);
-            float difference2 = Random.Range(0.1f, 0.2f);
-            float growth2 = Random.Range(0.5f, 0.8f);
+            float difference2 = random.NextFloat(0.1f, 0.2f);
+            float growth2 = random.NextFloat(0.5f, 0.8f);
             bool wall = false;
             while (wall == true)
             {
@@ -54,7 +76,7 @@ public class plant1 : MonoBehaviour
                 if (Physics.Raycast(two.transform.position, transform.forward * growth2, out RaycastHit hitInfo, growth2 * 2))
                 {
                     wall = true;
-                    two.transform.rotation = Quaternion.Euler(Random.Range(-45, 45), Random.Range(-45, 45), Random.Range(-45, 45));
+                    two.transform.rotation = Quaternion.Euler(random.NextFloat(-45, 45), random.NextFloat(-45, 45), random.NextFloat(-45, 45));
                 }
             }
 
@@ -68,7 +90,7 @@ public class plant1 : MonoBehaviour
 
             if (root.GetComponent<plant1>().grow_count != 0)
             {
-                int stems = Random.Range(1, 2);
+                int stems = random.Next(1, 3);
                 while (stems > 0)
                 {
                     stems--;
@@ -86,6 +108,11 @@ public class plant1 : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void LoadRootData(List<Vector3> data)
+    {
+        // TODO: Implement loading of root data to reconstruct the plant structure
     }
 
     public void add_data(Vector3 data)

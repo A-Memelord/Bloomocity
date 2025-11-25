@@ -53,7 +53,9 @@ MonoBehaviour:
   three: {fileID: 1618217872687973223}
   root: {fileID: 0}
   grow_count: 5
+  plantType: 0
   is_root: 1
+  root_plant_data: []
 --- !u!1001 &5666098106136615159
 PrefabInstance:
   m_ObjectHideFlags: 0

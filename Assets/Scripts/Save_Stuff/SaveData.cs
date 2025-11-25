@@ -23,6 +23,8 @@ public class SaveData
 
     //public List<ItemSaveData> gridItems = new List<ItemSaveData>();
     //public InventorySaveData inventoryData = new InventorySaveData();
+
+    public List<PlantSaveData> plantedPlants = new List<PlantSaveData>();
 }
 
 //[System.Serializable]
@@ -37,3 +39,14 @@ public class SaveData
 //{
 //    public List<int> itemIds = new List<int>(); // all items currently in inventory
 //}
+
+[System.Serializable]
+public struct PlantSaveData
+{
+    public int plantType;
+    public int seed;
+    public Vector3 pos;
+    public Quaternion rot;
+    public Vector3 scale;
+    public List<Vector3> rootPlantData;
+}

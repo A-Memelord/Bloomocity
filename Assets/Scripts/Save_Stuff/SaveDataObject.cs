@@ -5,4 +5,6 @@ using UnityEngine;
 public class SaveDataObject : ScriptableObject
 {
     public SaveData defaultData;
+
+
 }
