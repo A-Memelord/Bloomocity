@@ -31,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
 
     Rigidbody rb;
 
+    static public bool dialogue = false;
 
     private void Start()
     {
@@ -64,21 +65,28 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        MovePlayer();
+        if (!dialogue)
+        {
+            MovePlayer();
+        }
+  
     }
 
     private void MyInput()
     {
-        horizontalInput = Input.GetAxisRaw("Horizontal");
-        verticalInput = Input.GetAxisRaw("Vertical");
-
-        if(Input.GetKeyDown(jumpKey) && readyToJump && grounded)
+        if (!PlayerMovement.dialogue)
         {
-            readyToJump = false;
+            horizontalInput = Input.GetAxisRaw("Horizontal");
+            verticalInput = Input.GetAxisRaw("Vertical");
 
-            Jump();
+            if (Input.GetKeyDown(jumpKey) && readyToJump && grounded)
+            {
+                readyToJump = false;
 
-            Invoke(nameof(ResetJump), jumpCooldown);
+                Jump();
+
+                Invoke(nameof(ResetJump), jumpCooldown);
+            }
         }
     }
 
