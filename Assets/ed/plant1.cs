@@ -24,6 +24,8 @@ public class plant1 : MonoBehaviour
     public List<Vector3> root_plant_data;
     public Random random;
 
+    private float _lifeTime;
+
     private void OnDestroy()
     {
         if (is_root)
@@ -35,7 +37,7 @@ public class plant1 : MonoBehaviour
                 pos = this.transform.position,
                 rot = this.transform.rotation,
                 scale = this.transform.localScale,
-                rootPlantData = root_plant_data
+                lifeTime = this._lifeTime
             });
         }
     }
@@ -48,6 +50,11 @@ public class plant1 : MonoBehaviour
             add_data(transform.position);
         }
         StartCoroutine(Grow());
+    }
+
+    private void Update()
+    {
+       _lifeTime += Time.deltaTime;
     }
 
     public IEnumerator Grow()
@@ -110,9 +117,10 @@ public class plant1 : MonoBehaviour
         }
     }
 
-    public void LoadRootData(List<Vector3> data)
+    // IF WE MAKE CHANGES TO THE ABOVE FUNCTION MAKE CHANGES TO THIS ONE TOO
+    public void LoadRootData(float lifeTime)
     {
-        // TODO: Implement loading of root data to reconstruct the plant structure
+        
     }
 
     public void add_data(Vector3 data)
