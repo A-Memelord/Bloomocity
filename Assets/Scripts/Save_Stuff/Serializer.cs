@@ -1,7 +1,6 @@
 ﻿using System.IO;
 using UnityEngine;
 using System;
-using Newtonsoft.Json;
 
 public static class Serializer
 {
@@ -21,7 +20,7 @@ public static class Serializer
                 try
                 {
                     string backupJson = File.ReadAllText(backupPath);
-                    loadedData = JsonConvert.DeserializeObject<T>(backupJson);
+                    loadedData = JsonUtility.FromJson<T>(backupJson);
                     if (loadedData != null)
                         Debug.Log("Loaded save from backup.");
                     else
@@ -45,14 +44,14 @@ public static class Serializer
             try
             {
                 string json = File.ReadAllText(fullPath);
-                loadedData = JsonConvert.DeserializeObject<T>(json);
+                loadedData = JsonUtility.FromJson<T>(json);
                 if (loadedData == null)
                 {
                     Debug.LogWarning("Main save invalid. Trying backup...");
                     if (File.Exists(backupPath))
                     {
                         string backupJson = File.ReadAllText(backupPath);
-                        loadedData = JsonConvert.DeserializeObject<T>(backupJson);
+                        loadedData = JsonUtility.FromJson<T>(backupJson);
                         if (loadedData != null)
                             Debug.Log("Backup restored successfully.");
                         else
@@ -70,7 +69,7 @@ public static class Serializer
                 if (File.Exists(backupPath))
                 {
                     string backupJson = File.ReadAllText(backupPath);
-                    loadedData = JsonConvert.DeserializeObject<T>(backupJson);
+                    loadedData = JsonUtility.FromJson<T>(backupJson);
                     if (loadedData != null)
                         Debug.Log("Backup restored successfully.");
                     else
@@ -94,7 +93,7 @@ public static class Serializer
         if (!Directory.Exists(filePath))
             Directory.CreateDirectory(filePath);
 
-        string json = JsonConvert.SerializeObject(data, Formatting.Indented);
+        string json = JsonUtility.ToJson(data, true);
         string fullPath = Path.Combine(filePath, fileName);
         string tempPath = fullPath + ".tmp";
 
@@ -121,7 +120,7 @@ public static class Serializer
     private static T DeepCopy<T>(T obj)
     {
         if (obj == null) return default;
-        string json = JsonConvert.SerializeObject(obj);
-        return JsonConvert.DeserializeObject<T>(json);
+        string json = JsonUtility.ToJson(obj);
+        return JsonUtility.FromJson<T>(json);
     }
 }

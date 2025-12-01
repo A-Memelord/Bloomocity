@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 using System;
 using System.IO;
 using TMPro;
@@ -7,20 +6,26 @@ using UnityEngine.SceneManagement;
 
 public class SaveDataController : MonoBehaviour
 {
+    public static SaveDataController Instance;
+
     [SerializeField] private string filePath;
     [SerializeField] private string fileName;
 
     public SaveDataObject defaultData;
-    public static SaveData currentData;
+    private SaveData currentData;
+    public SaveData CurrentData => currentData;
 
     //public TMP_InputField resetField;
     //private string resetKey = "RESET";
     //private string currentResetKey = "";
 
-    private void Awake() => Load();
+    private void Awake()
+    {
+        Instance = this;
+        Load();
+    }
 
     private void OnDestroy() => Save();
-    private void OnApplicationQuit() => Save();
 
     private void OnApplicationPause(bool pause)
     {
@@ -35,7 +40,7 @@ public class SaveDataController : MonoBehaviour
     public void Load()
     {
         SaveData loadedData = Serializer.Load(defaultData.defaultData, Path.Combine(Application.persistentDataPath, filePath), fileName);
-        currentData = JsonConvert.DeserializeObject<SaveData>(JsonConvert.SerializeObject(loadedData));
+        currentData = JsonUtility.FromJson<SaveData>(JsonUtility.ToJson(loadedData));
     }
 
     public void Save()
