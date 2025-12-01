@@ -54,6 +54,7 @@ MonoBehaviour:
   root: {fileID: 0}
   grow_count: 5
   plantType: 0
+  seed: 3
   is_root: 1
   root_plant_data: []
 --- !u!1001 &5666098106136615159
