@@ -25,6 +25,7 @@ public class plant1 : MonoBehaviour
     public Random random;
 
     private float _lifeTime;
+    public float lifeTime;
 
     private void OnDestroy()
     {
