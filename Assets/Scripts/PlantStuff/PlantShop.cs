@@ -5,6 +5,7 @@ public class PlantShop : MonoBehaviour
 {
     public TMP_Text plantNameText;
     public TMP_Text plantCostText;
+    public TMP_Text buttonText;
 
     public PlantShopObject plantShopObjects;
 
@@ -12,14 +13,15 @@ public class PlantShop : MonoBehaviour
     {
         plantNameText.text = plantShopObjects.plantName;
         plantCostText.text = "$" + plantShopObjects.plantCost.ToString();
+        buttonText.text = "Buy";
     }
 
     void Update()
     {
-        
+        //if()
     }
 
-    public void Buy()
+    public void Interact()
     {
         if (SaveDataController.Instance.CurrentData.Money >= plantShopObjects.plantCost)
         {
