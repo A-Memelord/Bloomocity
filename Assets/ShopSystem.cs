@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class ShopSystem : MonoBehaviour
@@ -10,7 +11,9 @@ public class ShopSystem : MonoBehaviour
 
     public GameObject UI;
 
-    public bool Buy = true;
+    public TMP_Text ShopToggle;
+
+    public bool buyBool = true;
 
     private void Awake()
     {
@@ -19,8 +22,23 @@ public class ShopSystem : MonoBehaviour
 
     public void BuyMode(bool buy)
     {
-        print(buy);
-        Buy = buy;
+        buyBool = buy;
+
+        if (buyBool)
+        {
+            ShopToggle.text = "Buy Mode";
+            ShopToggle.color = Color.green;
+        }
+        else
+        {
+            ShopToggle.text = "Sell Mode";
+            ShopToggle.color = Color.red;
+        }
+    }
+
+    public void Start()
+    {
+        ShopToggle.color = Color.green;
     }
 
     void Update()
@@ -32,12 +50,16 @@ public class ShopSystem : MonoBehaviour
                 UI.SetActive(true);
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
+                PlayerCam.instance.sensX = 0f;
+                PlayerCam.instance.sensY = 0f;
             }
             else
             {
                 UI.SetActive(false);
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
+                PlayerCam.instance.sensX = 1600f;
+                PlayerCam.instance.sensY = 1600f;
             }
         }
         else
