@@ -3,13 +3,13 @@ using UnityEngine;
 [System.Serializable]
 public class InventorySlot
 {
-    [SerializeField] private InvenotryItemData itemData;
+    [SerializeField] private InventoryItemData itemData;
     [SerializeField] private int stackSize;
 
-    public InvenotryItemData ItemData => itemData;
+    public InventoryItemData ItemData => itemData;
     public int StackSize => stackSize;
 
-    public InventorySlot(InvenotryItemData source, int amount)
+    public InventorySlot(InventoryItemData source, int amount)
     {
         itemData = source;
         stackSize = amount;
@@ -24,6 +24,12 @@ public class InventorySlot
     {
         itemData = null;
         stackSize = -1;
+    }
+
+    public void UpdateInventorySlot(InventoryItemData data, int amount)
+    {
+        itemData = data;
+        stackSize = amount;
     }
 
     public bool RoomLeftInStack(int amountToAdd, out int amountRemaining)
