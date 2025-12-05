@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class PlayerCam : MonoBehaviour
 {
+    public static PlayerCam instance;
+
     public float sensX;
     public float sensY;
     public Transform orientation;
@@ -13,6 +15,11 @@ public class PlayerCam : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+    }
+
+    public void Awake()
+    {
+        instance = this;
     }
 
     // Update is called once per frame
