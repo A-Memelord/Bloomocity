@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00a09a65f667ff54199cfbab759ffe3f, type: 3}
   m_Name: Plant 2
   m_EditorClassIdentifier: 
-  ID: 0
-  icon: {fileID: 0}
+  ID: 1
+  icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   itemName: Plant 2
   description: This is a plant 2
-  maxStackSize: 5
+  maxStackSize: 1
