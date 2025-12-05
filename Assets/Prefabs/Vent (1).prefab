@@ -1,0 +1,104 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2137839149192237638
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3284553531263379133}
+  - component: {fileID: 635559927981605341}
+  - component: {fileID: 1828851895574625796}
+  m_Layer: 0
+  m_Name: Vent (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3284553531263379133
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2137839149192237638}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.7071068, y: -0.7071067, z: -0.000000053385072, w: 0.00000005338508}
+  m_LocalPosition: {x: 15.056895, y: 9.937257, z: 65.06636}
+  m_LocalScale: {x: 94.328384, y: 58.039074, z: 46.879482}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &635559927981605341
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2137839149192237638}
+  m_Mesh: {fileID: 879393299063259478, guid: c7b518cde4804c4468b9558c3bcc352a, type: 3}
+--- !u!23 &1828851895574625796
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2137839149192237638}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 8317340793687068220, guid: c7b518cde4804c4468b9558c3bcc352a, type: 3}
+  - {fileID: -2196632111014789890, guid: c7b518cde4804c4468b9558c3bcc352a, type: 3}
+  - {fileID: 5544586892600341984, guid: c7b518cde4804c4468b9558c3bcc352a, type: 3}
+  - {fileID: 8960344285497084861, guid: c7b518cde4804c4468b9558c3bcc352a, type: 3}
+  - {fileID: 6357678310540564720, guid: c7b518cde4804c4468b9558c3bcc352a, type: 3}
+  - {fileID: 483742010906425280, guid: c7b518cde4804c4468b9558c3bcc352a, type: 3}
+  - {fileID: 3011734270502663146, guid: c7b518cde4804c4468b9558c3bcc352a, type: 3}
+  - {fileID: 950898208217941419, guid: c7b518cde4804c4468b9558c3bcc352a, type: 3}
+  - {fileID: -5345343374753137132, guid: c7b518cde4804c4468b9558c3bcc352a, type: 3}
+  - {fileID: -7554349424240643939, guid: c7b518cde4804c4468b9558c3bcc352a, type: 3}
+  - {fileID: 3598186695915548037, guid: c7b518cde4804c4468b9558c3bcc352a, type: 3}
+  - {fileID: -1083397923576567153, guid: c7b518cde4804c4468b9558c3bcc352a, type: 3}
+  - {fileID: -139119002832970899, guid: c7b518cde4804c4468b9558c3bcc352a, type: 3}
+  - {fileID: -5575899475148636316, guid: c7b518cde4804c4468b9558c3bcc352a, type: 3}
+  - {fileID: 6187599905833924742, guid: c7b518cde4804c4468b9558c3bcc352a, type: 3}
+  - {fileID: -8017611728251091822, guid: c7b518cde4804c4468b9558c3bcc352a, type: 3}
+  - {fileID: -4102723662527397114, guid: c7b518cde4804c4468b9558c3bcc352a, type: 3}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
