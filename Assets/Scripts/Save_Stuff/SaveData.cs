@@ -49,4 +49,5 @@ public struct PlantSaveData
     public Quaternion rot;
     public Vector3 scale;
     public float lifeTime;
+    public List<Vector3> rootPlantData;
 }
