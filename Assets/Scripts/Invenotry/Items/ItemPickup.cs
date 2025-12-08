@@ -32,7 +32,7 @@ public class ItemPickup : MonoBehaviour
             float distance = Vector3.Distance(transform.position, Player.position);
             if (distance > attractionRange) return;
 
-        if (inventory.InventorySystem.HasFreeSlot(out InventorySlot freeSlot))
+        if (inventory.PrimaryInventorySystem.HasFreeSlot(out InventorySlot freeSlot))
         {
             // Speed scales with proximity so the motion is gentle when far and slightly stronger when close
             float t = 1f - Mathf.Clamp01(distance / attractionRange);
@@ -54,11 +54,11 @@ public class ItemPickup : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        var inventory = other.transform.GetComponent<InventoryHolder>();
+        var inventory = other.transform.GetComponent<PlayerInventoryHolder>();
 
         if (!inventory) return;
 
-        if (inventory.InventorySystem.AddToInventory(ItemData, 1))
+        if (inventory.AddToInventory(ItemData, 1))
         {
             Destroy(this.gameObject);
         }
