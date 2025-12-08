@@ -24,7 +24,7 @@ public class PlantManager : MonoBehaviour
             GameObject plantInstance = Instantiate(plantPrefabs[plantData.plantType], plantData.pos, plantData.rot);
             plantInstance.transform.localScale = plantData.scale;
             plantInstance.GetComponent<plant1>().lifeTime = plantData.lifeTime;
-            plantInstance.GetComponent<plant1>().LoadRootData(plantData.lifeTime);
+            plantInstance.GetComponent<plant1>().LoadRootData(plantData.lifeTime, plantData.rootPlantData);
             plantInstance.GetComponent<plant1>().seed = plantData.seed;
             plantInstance.GetComponent<plant1>().random = new System.Random(plantData.seed);
         }
