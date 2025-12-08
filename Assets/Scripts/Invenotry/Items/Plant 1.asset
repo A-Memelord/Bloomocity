@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Plant 1
   m_EditorClassIdentifier: 
   ID: 0
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: f49ad54ed691d31469fd5a715ade152d, type: 3}
   itemName: Plant 1
   description: This is a plant 1
-  maxStackSize: 2
+  maxStackSize: 5

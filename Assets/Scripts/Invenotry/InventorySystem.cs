@@ -30,7 +30,7 @@ public class InventorySystem
         {
             foreach (var slot in invSlot)
             {
-                if(slot.RoomLeftInStack(amountToAdd))
+                if(slot.EnoughRoomLeftInStack(amountToAdd))
                 {
                     slot.AddToStack(amountToAdd);
                     OnInventorySlotChanged?.Invoke(slot);
@@ -41,9 +41,12 @@ public class InventorySystem
 
         if (HasFreeSlot(out InventorySlot freeSlot)) // Gets The First Available Slot
         {
-            freeSlot.UpdateInventorySlot(itemToAdd, amountToAdd);
-            OnInventorySlotChanged?.Invoke(freeSlot);
-            return true;
+            if (freeSlot.EnoughRoomLeftInStack(amountToAdd))
+            {
+                freeSlot.UpdateInventorySlot(itemToAdd, amountToAdd);
+                OnInventorySlotChanged?.Invoke(freeSlot);
+                return true;
+            }
         }
         return false;
     }
