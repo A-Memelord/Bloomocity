@@ -3,7 +3,10 @@ using UnityEngine;
 
 public class NPCSystem : MonoBehaviour
 {
+    public AudioSource Meow;
     public bool playerDetection;
+
+    public static NPCSystem current;
 
     void Start()
     {
@@ -14,6 +17,7 @@ public class NPCSystem : MonoBehaviour
     {
         if (playerDetection && Input.GetKeyDown(KeyCode.F))
         {
+            Meow.Play();
             print("Dialogue Started");
         }
     }
@@ -23,11 +27,14 @@ public class NPCSystem : MonoBehaviour
         if (other.name == "Player")
         {
             playerDetection = true;
+            current = this;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
         playerDetection = false;
+        current = null;
     }
+
 }
