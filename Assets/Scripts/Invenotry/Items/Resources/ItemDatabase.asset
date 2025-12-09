@@ -9,11 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00a09a65f667ff54199cfbab759ffe3f, type: 3}
-  m_Name: Plant 2
+  m_Script: {fileID: 11500000, guid: 5d9041f335638b849b6a97c70bb85d10, type: 3}
+  m_Name: ItemDatabase
   m_EditorClassIdentifier: 
-  ID: 1
-  icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  itemName: Plant 2
-  description: This is a plant 2
-  maxStackSize: 1
+  _itemDatabase:
+  - {fileID: 11400000, guid: c26db2e9c53fc784b81749c07eefdc0d, type: 2}
+  - {fileID: 11400000, guid: 6d212a7df194a904883b855ccfdca392, type: 2}

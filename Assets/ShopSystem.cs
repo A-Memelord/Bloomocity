@@ -1,4 +1,4 @@
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 
 public class ShopSystem : MonoBehaviour
@@ -6,18 +6,51 @@ public class ShopSystem : MonoBehaviour
     public static ShopSystem instance;
 
     public GameObject Player;
-
     public GameObject NPC;
-
     public GameObject UI;
 
     public TMP_Text ShopToggle;
 
     public bool buyBool = true;
 
+    private bool isInRange = false; // 🔥 new flag
+
     private void Awake()
     {
         instance = this;
+    }
+
+    private void Start()
+    {
+        ShopToggle.color = Color.green;
+        UI.SetActive(false);
+    }
+
+    private void Update()
+    {
+        if (Player == null)
+        {
+            Player = GameObject.FindWithTag("Player");
+            return;
+        }
+
+        float dist = Vector3.Distance(Player.transform.position, NPC.transform.position);
+
+        // ENTER RANGE
+        if (!isInRange && dist < 3f)
+        {
+            isInRange = true;          // mark as entered
+            UI.SetActive(true);        // show UI
+            PlayerCam.instance.CameraLock(false);
+        }
+
+        // EXIT RANGE
+        if (isInRange && dist > 3.25f)
+        {
+            isInRange = false;         // mark as exited
+            UI.SetActive(false);       // hide UI
+            PlayerCam.instance.CameraLock(true);
+        }
     }
 
     public void BuyMode(bool buy)
@@ -33,38 +66,6 @@ public class ShopSystem : MonoBehaviour
         {
             ShopToggle.text = "Sell Mode";
             ShopToggle.color = Color.red;
-        }
-    }
-
-    public void Start()
-    {
-        ShopToggle.color = Color.green;
-    }
-
-    void Update()
-    {
-        if (Player != null)
-        {
-            if (Vector3.Distance(Player.transform.position, NPC.transform.position) < 3f)
-            {
-                UI.SetActive(true);
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
-                PlayerCam.instance.sensX = 0f;
-                PlayerCam.instance.sensY = 0f;
-            }
-            else
-            {
-                UI.SetActive(false);
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
-                PlayerCam.instance.sensX = 1600f;
-                PlayerCam.instance.sensY = 1600f;
-            }
-        }
-        else
-        {
-            Player = GameObject.FindWithTag("Player");
         }
     }
 }

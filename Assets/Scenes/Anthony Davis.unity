@@ -1707,7 +1707,7 @@ MonoBehaviour:
   ItemSprite: {fileID: 1923533801}
   ItemCount: {fileID: 1471291700}
   AssignedInventorySlot:
-    itemData: {fileID: 0}
+    _itemID: -1
     stackSize: -1
 --- !u!1 &346322143
 GameObject:

@@ -632,12 +632,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0c5e7c33e5e0b744a1ab26a67be3d9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InteractionPoint: {fileID: 1088071084052149637}
-  InteractionLayer:
+  interactionPoint: {fileID: 1088071084052149637}
+  interactionLayer:
     serializedVersion: 2
     m_Bits: 256
-  InteractionPointRadius: 1
-  InteractEndDistance: 3
+  interactionRadius: 2
+  endInteractionDistance: 2.01
 --- !u!114 &4274239335577895542
 MonoBehaviour:
   m_ObjectHideFlags: 0
