@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 
+[RequireComponent(typeof(UniqueID))]
 public class ChestInventory : InventoryHolder, IInteractable
 {
     public UnityAction<IInteractable> OnInteractionComplete { get; set; }
@@ -14,15 +15,15 @@ public class ChestInventory : InventoryHolder, IInteractable
 
     void Start()
     {
-        var chestSaveData = new ChestSaveData(primaryInventorySystem, this.transform.position, this.transform.rotation);
+        var chestSaveData = new InventorySaveData(primaryInventorySystem, this.transform.position, this.transform.rotation);
 
-        SaveGamemanager.data.chestDictionary.Add(GetComponent<UniqueID>().ID, chestSaveData);
+        SaveGameManager.data.chestDictionary.Add(GetComponent<UniqueID>().ID, chestSaveData);
     }
 
-    private void LoadInventory(SaveInvData data)
+    protected override void LoadInventory(SaveInvData data)
     {
         // Check The Save Data For This Specific Chests Save Data And If Found Load it Into This Chest
-        if (data.chestDictionary.TryGetValue(GetComponent<UniqueID>().ID, out ChestSaveData chestData))
+        if (data.chestDictionary.TryGetValue(GetComponent<UniqueID>().ID, out InventorySaveData chestData))
         {
             this.primaryInventorySystem = chestData.invSystem;
             this.transform.position = chestData.pos;
@@ -32,27 +33,12 @@ public class ChestInventory : InventoryHolder, IInteractable
 
     public void Interact(Interactor interactor, out bool interactSuccessful)
     {
-        OnDynamicInventoryDisplayRequested?.Invoke(primaryInventorySystem);
+        OnDynamicInventoryDisplayRequested?.Invoke(primaryInventorySystem, 0);
         interactSuccessful = true;
     }
 
     public void EndInteraction()
     {
-        OnCloseChestRequested?.Invoke(primaryInventorySystem);
-    }
-}
-
-[Serializable]
-public struct ChestSaveData
-{
-    public InventorySystem invSystem;
-    public Vector3 pos;
-    public Quaternion rot;
-
-    public ChestSaveData(InventorySystem _invSystem, Vector3 _pos, Quaternion _rot)
-    {
-        invSystem = _invSystem;
-        pos = _pos;
-        rot = _rot;
+        OnCloseChestRequested?.Invoke(primaryInventorySystem, 0);
     }
 }

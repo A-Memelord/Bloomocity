@@ -1,7 +1,9 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(SphereCollider))]
 [RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(UniqueID))]
 public class ItemPickup : MonoBehaviour
 {
     public float PickupRadius = 1f;
@@ -13,12 +15,35 @@ public class ItemPickup : MonoBehaviour
     private Rigidbody rb;
     private Transform Player;
 
+    [SerializeField] private ItemPickupSaveData itemSaveData;
+    private string id;
+
     void Awake()
     {
+        id = GetComponent<UniqueID>().ID;
+        SaveLoad.OnLoad += Load;
+        itemSaveData = new ItemPickupSaveData(ItemData, transform.position, transform.rotation);
+
         myCollider = GetComponent<SphereCollider>();
         myCollider.isTrigger = true;
         myCollider.radius = PickupRadius;
         rb = GetComponent<Rigidbody>();
+    }
+
+    private void Start()
+    {
+        SaveGameManager.data.activeItems.Add(id, itemSaveData);
+    }
+
+    private void Load(SaveInvData data)
+    {
+        if (data.collectedItems.Contains(id)) Destroy(this.gameObject);
+    }
+
+    private void OnDestroy()
+    {
+        if (SaveGameManager.data.activeItems.ContainsKey(id)) SaveGameManager.data.activeItems.Remove(id);
+        SaveLoad.OnLoad -= Load;
     }
 
     void FixedUpdate()
@@ -60,7 +85,22 @@ public class ItemPickup : MonoBehaviour
 
         if (inventory.AddToInventory(ItemData, 1))
         {
+            SaveGameManager.data.collectedItems.Add(id);
             Destroy(this.gameObject);
         }
+    }
+}
+
+[Serializable]
+public struct ItemPickupSaveData
+{
+    public InventoryItemData itemData;
+    public Vector3 pos;
+    public Quaternion rot;
+    public ItemPickupSaveData(InventoryItemData _data, Vector3 _pos, Quaternion _rot)
+    {
+        itemData = _data;
+        pos = _pos;
+        rot = _rot;
     }
 }

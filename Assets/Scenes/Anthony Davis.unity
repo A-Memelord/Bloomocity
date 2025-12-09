@@ -375,6 +375,7 @@ GameObject:
   - component: {fileID: 24820724}
   - component: {fileID: 24820723}
   - component: {fileID: 24820726}
+  - component: {fileID: 24820727}
   m_Layer: 0
   m_Name: Plant 1 (3)
   m_TagString: Untagged
@@ -419,6 +420,10 @@ MonoBehaviour:
   attractionRange: 3.5
   attractionSpeed: 10
   ItemData: {fileID: 11400000, guid: c26db2e9c53fc784b81749c07eefdc0d, type: 2}
+  itemSaveData:
+    itemData: {fileID: 0}
+    pos: {x: 0, y: 0, z: 0}
+    rot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!4 &24820725
 Transform:
   m_ObjectHideFlags: 0
@@ -462,6 +467,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &24820727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 24820722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc8d0ba6ad31105498c446c3e96cb257, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: 38b95e11-b404-41a5-97b6-00ada1352510
 --- !u!1 &52566820
 GameObject:
   m_ObjectHideFlags: 0
@@ -514,7 +532,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3411adf70a4e16141af6b947e01bdb3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chestPanel: {fileID: 416541494}
+  inventoryPanel: {fileID: 416541494}
   playerBackpackPanel: {fileID: 1600208097}
 --- !u!1001 &54178992
 PrefabInstance:
@@ -710,6 +728,7 @@ GameObject:
   - component: {fileID: 102770910}
   - component: {fileID: 102770909}
   - component: {fileID: 102770912}
+  - component: {fileID: 102770913}
   m_Layer: 0
   m_Name: Plant 2 (7)
   m_TagString: Untagged
@@ -754,6 +773,10 @@ MonoBehaviour:
   attractionRange: 3.5
   attractionSpeed: 10
   ItemData: {fileID: 11400000, guid: 6d212a7df194a904883b855ccfdca392, type: 2}
+  itemSaveData:
+    itemData: {fileID: 0}
+    pos: {x: 0, y: 0, z: 0}
+    rot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!4 &102770911
 Transform:
   m_ObjectHideFlags: 0
@@ -797,6 +820,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &102770913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102770908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc8d0ba6ad31105498c446c3e96cb257, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: e8e8fcc1-714c-4f81-a09e-a4271942b008
 --- !u!1 &131879471
 GameObject:
   m_ObjectHideFlags: 0
@@ -1376,34 +1412,10 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7283809552407779349, guid: 51188e8c7f6a6fd41ae53032a8045839, type: 3}
   m_PrefabInstance: {fileID: 1756413158}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &244196826 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5929895952825808785, guid: 51188e8c7f6a6fd41ae53032a8045839, type: 3}
+--- !u!114 &244196828 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4274239335577895542, guid: 51188e8c7f6a6fd41ae53032a8045839, type: 3}
   m_PrefabInstance: {fileID: 1756413158}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &244196827
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 244196820}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0c5e7c33e5e0b744a1ab26a67be3d9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  InteractionPoint: {fileID: 274777197}
-  InteractionLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  InteractionPointRadius: 1
-  InteractEndDistance: 3
---- !u!114 &244196828
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 244196820}
   m_Enabled: 1
@@ -1411,43 +1423,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95083c38869b6e04d9250903dd846687, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventorySize: 10
-  primaryInventorySystem:
-    inventorySlots: []
-  secondaryInventorySize: 30
-  secondaryInventorySystem:
-    inventorySlots: []
---- !u!1 &274777196
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 274777197}
-  m_Layer: 0
-  m_Name: InteractionPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 8418204508859773708, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &274777197
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 274777196}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 244196826}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &312908344
 GameObject:
   m_ObjectHideFlags: 0
@@ -1574,6 +1549,7 @@ GameObject:
   - component: {fileID: 331901352}
   - component: {fileID: 331901351}
   - component: {fileID: 331901354}
+  - component: {fileID: 331901355}
   m_Layer: 0
   m_Name: Plant 2 (3)
   m_TagString: Untagged
@@ -1618,6 +1594,10 @@ MonoBehaviour:
   attractionRange: 3.5
   attractionSpeed: 10
   ItemData: {fileID: 11400000, guid: 6d212a7df194a904883b855ccfdca392, type: 2}
+  itemSaveData:
+    itemData: {fileID: 0}
+    pos: {x: 0, y: 0, z: 0}
+    rot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!4 &331901353
 Transform:
   m_ObjectHideFlags: 0
@@ -1661,6 +1641,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &331901355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 331901350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc8d0ba6ad31105498c446c3e96cb257, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: 00713edd-cacd-4e43-94f4-fbeb87383672
 --- !u!1 &336318614
 GameObject:
   m_ObjectHideFlags: 0
@@ -2506,6 +2499,7 @@ GameObject:
   - component: {fileID: 431545660}
   - component: {fileID: 431545659}
   - component: {fileID: 431545662}
+  - component: {fileID: 431545663}
   m_Layer: 0
   m_Name: Plant 2 (4)
   m_TagString: Untagged
@@ -2550,6 +2544,10 @@ MonoBehaviour:
   attractionRange: 3.5
   attractionSpeed: 10
   ItemData: {fileID: 11400000, guid: 6d212a7df194a904883b855ccfdca392, type: 2}
+  itemSaveData:
+    itemData: {fileID: 0}
+    pos: {x: 0, y: 0, z: 0}
+    rot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!4 &431545661
 Transform:
   m_ObjectHideFlags: 0
@@ -2593,6 +2591,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &431545663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 431545658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc8d0ba6ad31105498c446c3e96cb257, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: 1953c90b-be94-42fc-b563-03caf01e5626
 --- !u!1 &463967023
 GameObject:
   m_ObjectHideFlags: 0
@@ -2788,6 +2799,7 @@ GameObject:
   - component: {fileID: 485494906}
   - component: {fileID: 485494905}
   - component: {fileID: 485494908}
+  - component: {fileID: 485494909}
   m_Layer: 0
   m_Name: Plant 1 (5)
   m_TagString: Untagged
@@ -2832,6 +2844,10 @@ MonoBehaviour:
   attractionRange: 3.5
   attractionSpeed: 10
   ItemData: {fileID: 11400000, guid: c26db2e9c53fc784b81749c07eefdc0d, type: 2}
+  itemSaveData:
+    itemData: {fileID: 0}
+    pos: {x: 0, y: 0, z: 0}
+    rot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!4 &485494907
 Transform:
   m_ObjectHideFlags: 0
@@ -2875,6 +2891,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &485494909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 485494904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc8d0ba6ad31105498c446c3e96cb257, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: d623973a-4410-49e4-80ec-62e06fcbda34
 --- !u!1 &496311272
 GameObject:
   m_ObjectHideFlags: 0
@@ -3011,6 +3040,7 @@ MonoBehaviour:
   inventorySize: 20
   primaryInventorySystem:
     inventorySlots: []
+  offset: 10
 --- !u!65 &585375893
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3478,6 +3508,7 @@ GameObject:
   - component: {fileID: 794200788}
   - component: {fileID: 794200787}
   - component: {fileID: 794200790}
+  - component: {fileID: 794200791}
   m_Layer: 0
   m_Name: Plant 1 (7)
   m_TagString: Untagged
@@ -3522,6 +3553,10 @@ MonoBehaviour:
   attractionRange: 3.5
   attractionSpeed: 10
   ItemData: {fileID: 11400000, guid: c26db2e9c53fc784b81749c07eefdc0d, type: 2}
+  itemSaveData:
+    itemData: {fileID: 0}
+    pos: {x: 0, y: 0, z: 0}
+    rot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!4 &794200789
 Transform:
   m_ObjectHideFlags: 0
@@ -3565,6 +3600,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &794200791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 794200786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc8d0ba6ad31105498c446c3e96cb257, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: 59b41444-6008-4140-b0f9-b57a31d773ad
 --- !u!1 &821742468
 GameObject:
   m_ObjectHideFlags: 0
@@ -3837,6 +3885,7 @@ GameObject:
   - component: {fileID: 899808234}
   - component: {fileID: 899808233}
   - component: {fileID: 899808236}
+  - component: {fileID: 899808237}
   m_Layer: 0
   m_Name: Plant 1 (1)
   m_TagString: Untagged
@@ -3881,6 +3930,10 @@ MonoBehaviour:
   attractionRange: 3.5
   attractionSpeed: 10
   ItemData: {fileID: 11400000, guid: c26db2e9c53fc784b81749c07eefdc0d, type: 2}
+  itemSaveData:
+    itemData: {fileID: 0}
+    pos: {x: 0, y: 0, z: 0}
+    rot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!4 &899808235
 Transform:
   m_ObjectHideFlags: 0
@@ -3924,6 +3977,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &899808237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 899808232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc8d0ba6ad31105498c446c3e96cb257, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: 7f0b95c7-002e-4ee6-a3a4-b637446c99a0
 --- !u!1 &925995770
 GameObject:
   m_ObjectHideFlags: 0
@@ -4705,7 +4771,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1105186226}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1860609207}
+        m_TargetAssemblyTypeName: SaveGameManager, Assembly-CSharp
+        m_MethodName: DeleteData
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1105186226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4756,6 +4834,7 @@ GameObject:
   - component: {fileID: 1113334281}
   - component: {fileID: 1113334280}
   - component: {fileID: 1113334283}
+  - component: {fileID: 1113334284}
   m_Layer: 0
   m_Name: Plant 2 (6)
   m_TagString: Untagged
@@ -4800,6 +4879,10 @@ MonoBehaviour:
   attractionRange: 3.5
   attractionSpeed: 10
   ItemData: {fileID: 11400000, guid: 6d212a7df194a904883b855ccfdca392, type: 2}
+  itemSaveData:
+    itemData: {fileID: 0}
+    pos: {x: 0, y: 0, z: 0}
+    rot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!4 &1113334282
 Transform:
   m_ObjectHideFlags: 0
@@ -4843,6 +4926,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1113334284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1113334279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc8d0ba6ad31105498c446c3e96cb257, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: 330e4da1-d5d7-4291-8e28-871801cb80ad
 --- !u!1 &1114884233
 GameObject:
   m_ObjectHideFlags: 0
@@ -4855,6 +4951,7 @@ GameObject:
   - component: {fileID: 1114884235}
   - component: {fileID: 1114884234}
   - component: {fileID: 1114884237}
+  - component: {fileID: 1114884238}
   m_Layer: 0
   m_Name: Plant 1 (4)
   m_TagString: Untagged
@@ -4899,6 +4996,10 @@ MonoBehaviour:
   attractionRange: 3.5
   attractionSpeed: 10
   ItemData: {fileID: 11400000, guid: c26db2e9c53fc784b81749c07eefdc0d, type: 2}
+  itemSaveData:
+    itemData: {fileID: 0}
+    pos: {x: 0, y: 0, z: 0}
+    rot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!4 &1114884236
 Transform:
   m_ObjectHideFlags: 0
@@ -4942,6 +5043,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1114884238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1114884233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc8d0ba6ad31105498c446c3e96cb257, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: 9c9ffa95-8747-4da2-9fb2-272ae4fb826a
 --- !u!1 &1139283151
 GameObject:
   m_ObjectHideFlags: 0
@@ -5165,6 +5279,7 @@ GameObject:
   - component: {fileID: 1183109085}
   - component: {fileID: 1183109087}
   - component: {fileID: 1183109088}
+  - component: {fileID: 1183109089}
   m_Layer: 0
   m_Name: Plant 1
   m_TagString: Untagged
@@ -5188,6 +5303,10 @@ MonoBehaviour:
   attractionRange: 3.5
   attractionSpeed: 10
   ItemData: {fileID: 11400000, guid: c26db2e9c53fc784b81749c07eefdc0d, type: 2}
+  itemSaveData:
+    itemData: {fileID: 0}
+    pos: {x: 0, y: 0, z: 0}
+    rot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!4 &1183109086
 Transform:
   m_ObjectHideFlags: 0
@@ -5252,6 +5371,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1183109089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1183109084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc8d0ba6ad31105498c446c3e96cb257, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: 79707d25-d956-4cc8-bcd9-2b9cfa8e842f
 --- !u!1 &1235324931
 GameObject:
   m_ObjectHideFlags: 0
@@ -5400,6 +5532,7 @@ GameObject:
   - component: {fileID: 1257534944}
   - component: {fileID: 1257534943}
   - component: {fileID: 1257534946}
+  - component: {fileID: 1257534947}
   m_Layer: 0
   m_Name: Plant 2 (2)
   m_TagString: Untagged
@@ -5444,6 +5577,10 @@ MonoBehaviour:
   attractionRange: 3.5
   attractionSpeed: 10
   ItemData: {fileID: 11400000, guid: 6d212a7df194a904883b855ccfdca392, type: 2}
+  itemSaveData:
+    itemData: {fileID: 0}
+    pos: {x: 0, y: 0, z: 0}
+    rot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!4 &1257534945
 Transform:
   m_ObjectHideFlags: 0
@@ -5487,6 +5624,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1257534947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257534942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc8d0ba6ad31105498c446c3e96cb257, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: cf47dd41-8a04-42b1-9f85-5a6aa6ae56f9
 --- !u!1 &1280788770
 GameObject:
   m_ObjectHideFlags: 0
@@ -10525,6 +10675,7 @@ GameObject:
   - component: {fileID: 1362498574}
   - component: {fileID: 1362498573}
   - component: {fileID: 1362498576}
+  - component: {fileID: 1362498577}
   m_Layer: 0
   m_Name: Plant 1 (8)
   m_TagString: Untagged
@@ -10569,6 +10720,10 @@ MonoBehaviour:
   attractionRange: 3.5
   attractionSpeed: 10
   ItemData: {fileID: 11400000, guid: c26db2e9c53fc784b81749c07eefdc0d, type: 2}
+  itemSaveData:
+    itemData: {fileID: 0}
+    pos: {x: 0, y: 0, z: 0}
+    rot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!4 &1362498575
 Transform:
   m_ObjectHideFlags: 0
@@ -10612,6 +10767,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1362498577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362498572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc8d0ba6ad31105498c446c3e96cb257, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: 6b847377-1b3d-44fb-84ca-38d3e2444dfb
 --- !u!1 &1412527517
 GameObject:
   m_ObjectHideFlags: 0
@@ -10799,6 +10967,7 @@ GameObject:
   - component: {fileID: 1420784191}
   - component: {fileID: 1420784190}
   - component: {fileID: 1420784193}
+  - component: {fileID: 1420784194}
   m_Layer: 0
   m_Name: Plant 1 (2)
   m_TagString: Untagged
@@ -10843,6 +11012,10 @@ MonoBehaviour:
   attractionRange: 3.5
   attractionSpeed: 10
   ItemData: {fileID: 11400000, guid: c26db2e9c53fc784b81749c07eefdc0d, type: 2}
+  itemSaveData:
+    itemData: {fileID: 0}
+    pos: {x: 0, y: 0, z: 0}
+    rot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!4 &1420784192
 Transform:
   m_ObjectHideFlags: 0
@@ -10886,6 +11059,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1420784194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1420784189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc8d0ba6ad31105498c446c3e96cb257, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: 4616487d-8588-4957-a2ca-f92ecf048575
 --- !u!1 &1423277329
 GameObject:
   m_ObjectHideFlags: 0
@@ -11180,6 +11366,7 @@ GameObject:
   - component: {fileID: 1481668937}
   - component: {fileID: 1481668936}
   - component: {fileID: 1481668939}
+  - component: {fileID: 1481668940}
   m_Layer: 0
   m_Name: Plant 1 (6)
   m_TagString: Untagged
@@ -11224,6 +11411,10 @@ MonoBehaviour:
   attractionRange: 3.5
   attractionSpeed: 10
   ItemData: {fileID: 11400000, guid: c26db2e9c53fc784b81749c07eefdc0d, type: 2}
+  itemSaveData:
+    itemData: {fileID: 0}
+    pos: {x: 0, y: 0, z: 0}
+    rot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!4 &1481668938
 Transform:
   m_ObjectHideFlags: 0
@@ -11267,6 +11458,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1481668940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1481668935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc8d0ba6ad31105498c446c3e96cb257, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: 64ce8f29-3b90-4049-b8c0-f62d23cc60f4
 --- !u!1 &1536145901
 GameObject:
   m_ObjectHideFlags: 0
@@ -11317,6 +11521,7 @@ MonoBehaviour:
   inventorySize: 10
   primaryInventorySystem:
     inventorySlots: []
+  offset: 10
 --- !u!65 &1536145904
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12352,7 +12557,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1690989232}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1860609207}
+        m_TargetAssemblyTypeName: SaveGameManager, Assembly-CSharp
+        m_MethodName: SaveInvData
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1690989232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12473,7 +12690,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1698052158}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1860609207}
+        m_TargetAssemblyTypeName: SaveGameManager, Assembly-CSharp
+        m_MethodName: TryLoadData
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1698052158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12940,35 +13169,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6410233237504503183, guid: 51188e8c7f6a6fd41ae53032a8045839, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6947110072838530768, guid: 51188e8c7f6a6fd41ae53032a8045839, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7283809552407779349, guid: 51188e8c7f6a6fd41ae53032a8045839, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 7283809552407779349, guid: 51188e8c7f6a6fd41ae53032a8045839, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 5929895952825808785, guid: 51188e8c7f6a6fd41ae53032a8045839, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 274777197}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7283809552407779349, guid: 51188e8c7f6a6fd41ae53032a8045839, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 244196827}
-    - targetCorrespondingSourceObject: {fileID: 7283809552407779349, guid: 51188e8c7f6a6fd41ae53032a8045839, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 244196828}
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51188e8c7f6a6fd41ae53032a8045839, type: 3}
 --- !u!4 &1756413159 stripped
 Transform:
@@ -13238,6 +13446,7 @@ GameObject:
   - component: {fileID: 1824122138}
   - component: {fileID: 1824122137}
   - component: {fileID: 1824122140}
+  - component: {fileID: 1824122141}
   m_Layer: 0
   m_Name: Plant 2 (5)
   m_TagString: Untagged
@@ -13282,6 +13491,10 @@ MonoBehaviour:
   attractionRange: 3.5
   attractionSpeed: 10
   ItemData: {fileID: 11400000, guid: 6d212a7df194a904883b855ccfdca392, type: 2}
+  itemSaveData:
+    itemData: {fileID: 0}
+    pos: {x: 0, y: 0, z: 0}
+    rot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!4 &1824122139
 Transform:
   m_ObjectHideFlags: 0
@@ -13325,6 +13538,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1824122141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1824122136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc8d0ba6ad31105498c446c3e96cb257, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: 21e26f85-deca-4af3-84ea-0039f87a620c
 --- !u!1 &1860609204
 GameObject:
   m_ObjectHideFlags: 0
@@ -13335,6 +13561,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1860609205}
   - component: {fileID: 1860609206}
+  - component: {fileID: 1860609207}
   m_Layer: 0
   m_Name: SaveDataController
   m_TagString: Untagged
@@ -13372,6 +13599,18 @@ MonoBehaviour:
   filePath: SaveData
   fileName: SaveData.json
   defaultData: {fileID: 11400000, guid: 7feff6df2ced6a747a949e560852e6f6, type: 2}
+--- !u!114 &1860609207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860609204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a87b5d12562904f49a95f755f6bf5556, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1874025246
 GameObject:
   m_ObjectHideFlags: 0
@@ -14152,6 +14391,7 @@ GameObject:
   - component: {fileID: 1997626809}
   - component: {fileID: 1997626808}
   - component: {fileID: 1997626811}
+  - component: {fileID: 1997626812}
   m_Layer: 0
   m_Name: Plant 2 (8)
   m_TagString: Untagged
@@ -14196,6 +14436,10 @@ MonoBehaviour:
   attractionRange: 3.5
   attractionSpeed: 10
   ItemData: {fileID: 11400000, guid: 6d212a7df194a904883b855ccfdca392, type: 2}
+  itemSaveData:
+    itemData: {fileID: 0}
+    pos: {x: 0, y: 0, z: 0}
+    rot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!4 &1997626810
 Transform:
   m_ObjectHideFlags: 0
@@ -14239,6 +14483,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1997626812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1997626807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc8d0ba6ad31105498c446c3e96cb257, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: 448e8a60-8d99-482a-a55c-8543cd5decbb
 --- !u!1001 &2030054445
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14375,6 +14632,7 @@ GameObject:
   - component: {fileID: 2080910766}
   - component: {fileID: 2080910765}
   - component: {fileID: 2080910768}
+  - component: {fileID: 2080910769}
   m_Layer: 0
   m_Name: Plant 2
   m_TagString: Untagged
@@ -14419,6 +14677,10 @@ MonoBehaviour:
   attractionRange: 3.5
   attractionSpeed: 10
   ItemData: {fileID: 11400000, guid: 6d212a7df194a904883b855ccfdca392, type: 2}
+  itemSaveData:
+    itemData: {fileID: 0}
+    pos: {x: 0, y: 0, z: 0}
+    rot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!4 &2080910767
 Transform:
   m_ObjectHideFlags: 0
@@ -14462,6 +14724,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2080910769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2080910764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc8d0ba6ad31105498c446c3e96cb257, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: fc1e8989-7b49-44fa-bbbc-e8e2948ad22c
 --- !u!1 &2095179926
 GameObject:
   m_ObjectHideFlags: 0
@@ -14474,6 +14749,7 @@ GameObject:
   - component: {fileID: 2095179928}
   - component: {fileID: 2095179927}
   - component: {fileID: 2095179930}
+  - component: {fileID: 2095179931}
   m_Layer: 0
   m_Name: Plant 2 (1)
   m_TagString: Untagged
@@ -14518,6 +14794,10 @@ MonoBehaviour:
   attractionRange: 3.5
   attractionSpeed: 10
   ItemData: {fileID: 11400000, guid: 6d212a7df194a904883b855ccfdca392, type: 2}
+  itemSaveData:
+    itemData: {fileID: 0}
+    pos: {x: 0, y: 0, z: 0}
+    rot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!4 &2095179929
 Transform:
   m_ObjectHideFlags: 0
@@ -14561,6 +14841,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2095179931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2095179926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc8d0ba6ad31105498c446c3e96cb257, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: f3489f9e-db90-48b2-a0e2-ad9855e53450
 --- !u!1 &2137834032
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,14 +6,16 @@ using UnityEngine.Events;
 public static class SaveLoad
 {
     public static UnityAction OnSave;
-    public static UnityAction<SaveData> OnLoad;
+    public static UnityAction<SaveInvData> OnLoad;
 
     private static string directory = "/SaveData/";
     private static string fileName = "SaveImage.pdf";
 
-    public static bool Save(SaveData data)
+    public static bool Save(SaveInvData data)
     {
         OnSave?.Invoke();
+
+        GUIUtility.systemCopyBuffer = directory;
 
         string dir = Application.persistentDataPath + directory;
 
@@ -27,15 +29,15 @@ public static class SaveLoad
         return true;
     }
 
-    public static SaveData Load()
+    public static SaveInvData Load()
     {
         string fullPath = Application.persistentDataPath + directory + fileName;
-        SaveData data = new SaveData();
+        SaveInvData data = new SaveInvData();
 
         if (File.Exists(fullPath))
         {
             string json = File.ReadAllText(fullPath);
-            data = JsonUtility.FromJson<SaveData>(json);
+            data = JsonUtility.FromJson<SaveInvData>(json);
             OnLoad?.Invoke(data);
             Debug.Log("Loading Game");
         }
@@ -45,5 +47,12 @@ public static class SaveLoad
         }
 
         return data;
+    }
+
+    public static void DeleteSaveInvData()
+    {
+        string fullPath = Application.persistentDataPath + directory + fileName;
+
+        if (File.Exists(fullPath)) File.Delete(fullPath);
     }
 }
