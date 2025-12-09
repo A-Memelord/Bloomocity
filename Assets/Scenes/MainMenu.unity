@@ -704,7 +704,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc6f696f24f432c43a2f5108f1fe0a57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GAME_SCENE_NAME: Anthony Davis
+  GAME_SCENE_NAME: MainScene
 --- !u!1 &99662781
 GameObject:
   m_ObjectHideFlags: 0

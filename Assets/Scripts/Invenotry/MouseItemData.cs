@@ -13,6 +13,7 @@ public class MouseItemData : MonoBehaviour
 
     private void Awake()
     {
+        ItemSprite.preserveAspect = true;
         ItemSprite.color = Color.clear;
         ItemCount.text = string.Empty;
     }

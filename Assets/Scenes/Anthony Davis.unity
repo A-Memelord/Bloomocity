@@ -11484,7 +11484,7 @@ GameObject:
   - component: {fileID: 1536145903}
   - component: {fileID: 1536145905}
   m_Layer: 8
-  m_Name: Chest
+  m_Name: SmallChest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11727,7 +11727,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1569378474}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1577458883
 GameObject:
   m_ObjectHideFlags: 0
