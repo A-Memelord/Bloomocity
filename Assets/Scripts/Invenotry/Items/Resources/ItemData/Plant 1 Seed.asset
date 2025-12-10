@@ -19,4 +19,4 @@ MonoBehaviour:
   description: This is a plant Seed
   Cost: 0
   ItemPrefab: {fileID: 0}
-  PlacedPrefab: {fileID: 0}
+  PlacedPrefab: {fileID: 8346523316295052394, guid: 44de772260d9c3f4fbb06111a1878e32, type: 3}
