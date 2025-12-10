@@ -1,17 +1,15 @@
+using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
+using System;
 
 [System.Serializable]
-public class InventorySlot
+public class InventorySlot : ItemSlot
 {
-    [SerializeField] private InventoryItemData itemData;
-    [SerializeField] private int stackSize;
-
-    public InventoryItemData ItemData => itemData;
-    public int StackSize => stackSize;
-
     public InventorySlot(InventoryItemData source, int amount)
     {
         itemData = source;
+        _itemID = ItemData.ID;
         stackSize = amount;
     }
 
@@ -20,26 +18,10 @@ public class InventorySlot
         ClearSlot();
     }
 
-    public void ClearSlot()
-    {
-        itemData = null;
-        stackSize = -1;
-    }
-
-    public void AssignItem(InventorySlot invSlot)
-    {
-        if (itemData == invSlot.itemData) AddToStack(invSlot.stackSize);
-        else
-        {
-            itemData = invSlot.itemData;
-            stackSize = 0;
-            AddToStack(invSlot.stackSize);
-        }
-    }
-
     public void UpdateInventorySlot(InventoryItemData data, int amount)
     {
         itemData = data;
+        _itemID = ItemData.ID;
         stackSize = amount;
     }
 
@@ -56,15 +38,6 @@ public class InventorySlot
         else return false;
     }
 
-    public void AddToStack(int amount)
-    {
-        stackSize += amount;
-    }
-
-    public void RemoveFromStack(int amount)
-    {
-        stackSize -= amount;
-    }
 
     public bool SplitStack(out InventorySlot splitStack)
     {

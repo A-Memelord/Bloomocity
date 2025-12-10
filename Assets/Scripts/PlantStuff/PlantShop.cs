@@ -4,6 +4,8 @@ using TMPro;
 
 public class PlantShop : MonoBehaviour
 {
+    public static PlantShop instance;
+
     public TMP_Text plantNameText;
     public TMP_Text plantCostText;
     public TMP_Text buttonText;
@@ -12,6 +14,12 @@ public class PlantShop : MonoBehaviour
     public PlantShopObject plantShopObjects;
 
     public double plantSellValue;
+    private bool _buyBool = false;
+
+    public void Awake()
+    {
+        instance = this;
+    }
 
     void Start()
     {
@@ -22,18 +30,23 @@ public class PlantShop : MonoBehaviour
         interactButton.GetComponent<Button>().onClick.AddListener(Interact);
     }
 
+    public void ChangeBool(bool value)
+    {
+        _buyBool = value;
+    }
+
     void Update()
     {
         plantSellValue = plantShopObjects.plantCost * 2f;
 
-        if (ShopSystem.instance.buyBool == true)
+        if (_buyBool == true)
         {
             plantNameText.text = plantShopObjects.plantName;
             plantCostText.text = "$" + plantShopObjects.plantCost.ToString();
             buttonText.text = "Buy";
             interactButton.GetComponent<Image>().color = Color.green;
         }
-        else if(ShopSystem.instance.buyBool == false)
+        else if (_buyBool == false)
         {
             plantNameText.text = plantShopObjects.plantName;
             plantCostText.text = "$" + plantSellValue.ToString();
@@ -44,7 +57,7 @@ public class PlantShop : MonoBehaviour
 
     public void Interact()
     {
-        if (ShopSystem.instance.buyBool == true)
+        if (_buyBool == true)
         {
             // Buy Plant Logic Here
             if (SaveDataController.Instance.CurrentData.Money >= plantShopObjects.plantCost)
@@ -55,7 +68,7 @@ public class PlantShop : MonoBehaviour
 
             }
         }
-        else if (ShopSystem.instance.buyBool == false)
+        else if (_buyBool == false)
         {
             // Sell Plant Logic Here
             if (/* Check If Player Has The Plant To Sell */ true)

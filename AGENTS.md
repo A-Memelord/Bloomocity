@@ -2,7 +2,7 @@
 - Project name: BloomOcity
 - Unity version: Unity 6000.0.27f1
 - Active game object:
-  - Name: InteractionPoint
+  - Name: InventorySlot_UI (3)
   - Tag: Untagged
-  - Layer: Default
+  - Layer: UI
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->

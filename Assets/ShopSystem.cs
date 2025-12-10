@@ -1,70 +1,71 @@
-using TMPro;
-using UnityEngine;
+﻿//using TMPro;
+//using UnityEngine;
 
-public class ShopSystem : MonoBehaviour
-{
-    public static ShopSystem instance;
+//public class ShopSystem : MonoBehaviour
+//{
+//    public static ShopSystem instance;
 
-    public GameObject Player;
+//    public GameObject Player;
+//    public GameObject NPC;
+//    public GameObject UI;
 
-    public GameObject NPC;
+//    public TMP_Text ShopToggle;
 
-    public GameObject UI;
+//    public bool buyBool = true;
 
-    public TMP_Text ShopToggle;
+//    private bool isInRange = false; // 🔥 new flag
 
-    public bool buyBool = true;
+//    private void Awake()
+//    {
+//        instance = this;
+//    }
 
-    private void Awake()
-    {
-        instance = this;
-    }
+//    private void Start()
+//    {
+//        ShopToggle.color = Color.green;
+//        UI.SetActive(false);
+//    }
 
-    public void BuyMode(bool buy)
-    {
-        buyBool = buy;
+//private void Update()
+//{
+//    if (Player == null)
+//    {
+//        Player = GameObject.FindWithTag("Player");
+//        return;
+//    }
 
-        if (buyBool)
-        {
-            ShopToggle.text = "Buy Mode";
-            ShopToggle.color = Color.green;
-        }
-        else
-        {
-            ShopToggle.text = "Sell Mode";
-            ShopToggle.color = Color.red;
-        }
-    }
+//    float dist = Vector3.Distance(Player.transform.position, NPC.transform.position);
 
-    public void Start()
-    {
-        ShopToggle.color = Color.green;
-    }
+//    // ENTER RANGE
+//    if (!isInRange && dist < 3f)
+//    {
+//        isInRange = true;          // mark as entered
+//        UI.SetActive(true);        // show UI
+//        PlayerCam.instance.CameraLock(false);
+//    }
 
-    void Update()
-    {
-        if (Player != null)
-        {
-            if (Vector3.Distance(Player.transform.position, NPC.transform.position) < 3f)
-            {
-                UI.SetActive(true);
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
-                PlayerCam.instance.sensX = 0f;
-                PlayerCam.instance.sensY = 0f;
-            }
-            else
-            {
-                UI.SetActive(false);
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
-                PlayerCam.instance.sensX = 1600f;
-                PlayerCam.instance.sensY = 1600f;
-            }
-        }
-        else
-        {
-            Player = GameObject.FindWithTag("Player");
-        }
-    }
-}
+//    // EXIT RANGE
+//    if (isInRange && dist > 3.25f)
+//    {
+//        isInRange = false;         // mark as exited
+//        UI.SetActive(false);       // hide UI
+//        PlayerCam.instance.CameraLock(true);
+//    }
+//}
+
+//public void BuyMode(bool buy)
+//{
+//    buyBool = buy;
+
+//    if (buyBool)
+//    {
+//        ShopToggle.text = "Buy Mode";
+//        ShopToggle.color = Color.green;
+//    }
+//    else
+//    {
+//        ShopToggle.text = "Sell Mode";
+//        ShopToggle.color = Color.red;
+//    }
+//}
+//}

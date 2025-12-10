@@ -11,18 +11,30 @@ public class MouseItemData : MonoBehaviour
     public TMP_Text ItemCount;
     public InventorySlot AssignedInventorySlot;
 
+    private Transform _playerTransform;
+    private float _dropOffset = 3f;
+
     private void Awake()
     {
+        ItemSprite.preserveAspect = true;
         ItemSprite.color = Color.clear;
         ItemCount.text = string.Empty;
+
+        _playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        if (_playerTransform == null) print("Player Not Found");
     }
 
     public void UpdateMouseSlot(InventorySlot invSlot)
     {
         AssignedInventorySlot.AssignItem(invSlot);
-        ItemSprite.sprite = invSlot.ItemData.icon;
+        UpdateMouseSlot();
+    }
+
+    public void UpdateMouseSlot()
+    {
+        ItemSprite.sprite = AssignedInventorySlot.ItemData.icon;
+        ItemCount.text = AssignedInventorySlot.StackSize.ToString();
         ItemSprite.color = Color.white;
-        ItemCount.text = invSlot.StackSize.ToString();
     }
 
     private void Update()
@@ -35,8 +47,17 @@ public class MouseItemData : MonoBehaviour
 
             if (Mouse.current.leftButton.wasPressedThisFrame && !IsPointerOverUIObject())
             {
-                ClearSlot();
-                // TODO: Drop The Item On The Ground
+                if(AssignedInventorySlot.ItemData.ItemPrefab != null) Instantiate(AssignedInventorySlot.ItemData.ItemPrefab, _playerTransform.position + _playerTransform.forward * _dropOffset, Quaternion.identity);
+
+                if (AssignedInventorySlot.StackSize > 1)
+                {
+                    AssignedInventorySlot.AddToStack(-1);
+                    UpdateMouseSlot();
+                }
+                else
+                {
+                    ClearSlot();
+                }
             }
         }
     }
