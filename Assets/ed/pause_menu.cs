@@ -63,6 +63,8 @@ public class ingame_ui : MonoBehaviour
     {
         paused = false;
         pause_menu.SetActive(false);
+        settings_menu.SetActive(false);
+        exit_menu.SetActive(false);
         Time.timeScale = 1f;
         Cursor.lockState = CursorLockMode.Locked;
     }
