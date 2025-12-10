@@ -6,13 +6,15 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class UniqueID : MonoBehaviour
 {
-    [ReadOnly, SerializeField] private string _id = Guid.NewGuid().ToString();
+    [ReadOnly, SerializeField] private string _id;
     [SerializeField] private static SerializableDictionary<string, GameObject> idDatabase = new SerializableDictionary<string, GameObject>();
 
     public string ID => _id;
 
-    private void OnValidate()
+    private void Awake()
     {
+        if (idDatabase == null) idDatabase = new SerializableDictionary<string, GameObject>();
+
         if (idDatabase.ContainsKey(_id)) Generate();
         else idDatabase.Add(_id, this.gameObject);
     }
@@ -22,6 +24,7 @@ public class UniqueID : MonoBehaviour
         if (idDatabase.ContainsKey(_id)) idDatabase.Remove(_id);
     }
 
+    [ContextMenu("Generate ID")]
     private void Generate()
     {
         _id = Guid.NewGuid().ToString();

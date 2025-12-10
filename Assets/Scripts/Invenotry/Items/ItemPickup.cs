@@ -9,6 +9,9 @@ public class ItemPickup : MonoBehaviour
     public float PickupRadius = 1f;
     public float attractionRange = 5f;
     public float attractionSpeed = 10f;
+
+    private float _rotSpeed = 250f;
+
     public InventoryItemData ItemData;
 
     private SphereCollider myCollider;
@@ -20,7 +23,6 @@ public class ItemPickup : MonoBehaviour
 
     void Awake()
     {
-        id = GetComponent<UniqueID>().ID;
         SaveLoad.OnLoad += Load;
         itemSaveData = new ItemPickupSaveData(ItemData, transform.position, transform.rotation);
 
@@ -32,6 +34,7 @@ public class ItemPickup : MonoBehaviour
 
     private void Start()
     {
+        id = GetComponent<UniqueID>().ID;
         SaveGameManager.data.activeItems.Add(id, itemSaveData);
     }
 
@@ -46,8 +49,14 @@ public class ItemPickup : MonoBehaviour
         SaveLoad.OnLoad -= Load;
     }
 
+    private void Update()
+    {
+        rb.MoveRotation(rb.rotation * Quaternion.Euler(0f, _rotSpeed * Time.deltaTime, 0f));
+    }
+
     void FixedUpdate()
     {
+
         if (Player == null)
         {
             Player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -74,7 +83,6 @@ public class ItemPickup : MonoBehaviour
                 transform.position = newPos;
             }
         }
-
     }
 
     private void OnTriggerEnter(Collider other)

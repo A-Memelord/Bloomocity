@@ -4,15 +4,8 @@ using UnityEngine;
 using System;
 
 [System.Serializable]
-public class InventorySlot : ISerializationCallbackReceiver
+public class InventorySlot : ItemSlot
 {
-    [NonSerialized] private InventoryItemData itemData;
-    [SerializeField] private int _itemID = -1;
-    [SerializeField] private int stackSize;
-
-    public InventoryItemData ItemData => itemData;
-    public int StackSize => stackSize;
-
     public InventorySlot(InventoryItemData source, int amount)
     {
         itemData = source;
@@ -23,25 +16,6 @@ public class InventorySlot : ISerializationCallbackReceiver
     public InventorySlot()
     {
         ClearSlot();
-    }
-
-    public void ClearSlot()
-    {
-        itemData = null;
-        _itemID = -1;
-        stackSize = -1;
-    }
-
-    public void AssignItem(InventorySlot invSlot)
-    {
-        if (itemData == invSlot.itemData) AddToStack(invSlot.stackSize);
-        else
-        {
-            itemData = invSlot.itemData;
-            _itemID = ItemData.ID;
-            stackSize = 0;
-            AddToStack(invSlot.stackSize);
-        }
     }
 
     public void UpdateInventorySlot(InventoryItemData data, int amount)
@@ -64,15 +38,6 @@ public class InventorySlot : ISerializationCallbackReceiver
         else return false;
     }
 
-    public void AddToStack(int amount)
-    {
-        stackSize += amount;
-    }
-
-    public void RemoveFromStack(int amount)
-    {
-        stackSize -= amount;
-    }
 
     public bool SplitStack(out InventorySlot splitStack)
     {
@@ -87,18 +52,5 @@ public class InventorySlot : ISerializationCallbackReceiver
 
         splitStack = new InventorySlot(itemData, halfStack);
         return true;
-    }
-
-    public void OnBeforeSerialize()
-    {
-        
-    }
-
-    public void OnAfterDeserialize()
-    {
-        if (_itemID == -1) return;
-
-        var db = Resources.Load<Database>(path: "ItemDatabase");
-        itemData = db.GetItem(_itemID);
     }
 }
