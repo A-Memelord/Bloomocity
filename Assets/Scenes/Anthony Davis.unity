@@ -419,7 +419,7 @@ MonoBehaviour:
   PickupRadius: 1
   attractionRange: 3.5
   attractionSpeed: 10
-  ItemData: {fileID: 11400000, guid: c26db2e9c53fc784b81749c07eefdc0d, type: 2}
+  ItemData: {fileID: 11400000, guid: 6d212a7df194a904883b855ccfdca392, type: 2}
   itemSaveData:
     itemData: {fileID: 0}
     pos: {x: 0, y: 0, z: 0}
@@ -2873,7 +2873,7 @@ MonoBehaviour:
   PickupRadius: 1
   attractionRange: 3.5
   attractionSpeed: 10
-  ItemData: {fileID: 11400000, guid: c26db2e9c53fc784b81749c07eefdc0d, type: 2}
+  ItemData: {fileID: 11400000, guid: 6d212a7df194a904883b855ccfdca392, type: 2}
   itemSaveData:
     itemData: {fileID: 0}
     pos: {x: 0, y: 0, z: 0}
@@ -3411,7 +3411,7 @@ MonoBehaviour:
   PickupRadius: 1
   attractionRange: 3.5
   attractionSpeed: 10
-  ItemData: {fileID: 11400000, guid: c26db2e9c53fc784b81749c07eefdc0d, type: 2}
+  ItemData: {fileID: 11400000, guid: 6d212a7df194a904883b855ccfdca392, type: 2}
   itemSaveData:
     itemData: {fileID: 0}
     pos: {x: 0, y: 0, z: 0}
@@ -3788,7 +3788,7 @@ MonoBehaviour:
   PickupRadius: 1
   attractionRange: 3.5
   attractionSpeed: 10
-  ItemData: {fileID: 11400000, guid: c26db2e9c53fc784b81749c07eefdc0d, type: 2}
+  ItemData: {fileID: 11400000, guid: 6d212a7df194a904883b855ccfdca392, type: 2}
   itemSaveData:
     itemData: {fileID: 0}
     pos: {x: 0, y: 0, z: 0}
@@ -4854,7 +4854,7 @@ MonoBehaviour:
   PickupRadius: 1
   attractionRange: 3.5
   attractionSpeed: 10
-  ItemData: {fileID: 11400000, guid: c26db2e9c53fc784b81749c07eefdc0d, type: 2}
+  ItemData: {fileID: 11400000, guid: 6d212a7df194a904883b855ccfdca392, type: 2}
   itemSaveData:
     itemData: {fileID: 0}
     pos: {x: 0, y: 0, z: 0}
@@ -5161,7 +5161,7 @@ MonoBehaviour:
   PickupRadius: 1
   attractionRange: 3.5
   attractionSpeed: 10
-  ItemData: {fileID: 11400000, guid: c26db2e9c53fc784b81749c07eefdc0d, type: 2}
+  ItemData: {fileID: 11400000, guid: 6d212a7df194a904883b855ccfdca392, type: 2}
   itemSaveData:
     itemData: {fileID: 0}
     pos: {x: 0, y: 0, z: 0}
@@ -10578,7 +10578,7 @@ MonoBehaviour:
   PickupRadius: 1
   attractionRange: 3.5
   attractionSpeed: 10
-  ItemData: {fileID: 11400000, guid: c26db2e9c53fc784b81749c07eefdc0d, type: 2}
+  ItemData: {fileID: 11400000, guid: 6d212a7df194a904883b855ccfdca392, type: 2}
   itemSaveData:
     itemData: {fileID: 0}
     pos: {x: 0, y: 0, z: 0}
@@ -10870,7 +10870,7 @@ MonoBehaviour:
   PickupRadius: 1
   attractionRange: 3.5
   attractionSpeed: 10
-  ItemData: {fileID: 11400000, guid: c26db2e9c53fc784b81749c07eefdc0d, type: 2}
+  ItemData: {fileID: 11400000, guid: 6d212a7df194a904883b855ccfdca392, type: 2}
   itemSaveData:
     itemData: {fileID: 0}
     pos: {x: 0, y: 0, z: 0}
@@ -11300,7 +11300,7 @@ MonoBehaviour:
   PickupRadius: 1
   attractionRange: 3.5
   attractionSpeed: 10
-  ItemData: {fileID: 11400000, guid: c26db2e9c53fc784b81749c07eefdc0d, type: 2}
+  ItemData: {fileID: 11400000, guid: 6d212a7df194a904883b855ccfdca392, type: 2}
   itemSaveData:
     itemData: {fileID: 0}
     pos: {x: 0, y: 0, z: 0}

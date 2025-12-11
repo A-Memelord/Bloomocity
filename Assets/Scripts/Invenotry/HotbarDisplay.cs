@@ -85,6 +85,13 @@ public class HotbarDisplay : StaticInventoryDisplay
         var uiSlot = slots[_currentIndex];
         var slot = uiSlot?.AssignedInventorySlot;
 
+        // Only allow preview / raycast if item is placeable
+        if (slot?.ItemData?.PlacedPrefab == null)
+        {
+            DestroySeedPreview();   // remove preview if switching items
+            return;                 // stop ALL preview logic
+        }
+
         // Handle left click use
         if (Input.GetMouseButtonDown(0))
         {

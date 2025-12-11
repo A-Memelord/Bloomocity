@@ -57,6 +57,6 @@ public class InventoryItemData : ScriptableObject
             // Fallback if parent not found: instantiate at position with spawn rotation
             Instantiate(this.PlacedPrefab, spawn.position, spawn.rotation);
         }
-        inventory.AddToInventory(this, -1);
+        inventory.RemoveFromInventory(this, 1);
     }
 }
