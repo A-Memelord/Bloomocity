@@ -9,7 +9,7 @@ public static class SaveLoad
     public static UnityAction<SaveInvData> OnLoad;
 
     private static string directory = "/SaveData/";
-    private static string fileName = "SaveImage.pdf";
+    private static string fileName = "SaveImage.json";
 
     public static bool Save(SaveInvData data)
     {
