@@ -37,4 +37,10 @@ public class PlayerInventoryHolder : InventoryHolder
 
         return false;
     }
+
+    public bool RemoveFromInventory(InventoryItemData data, int amount)
+    {
+        return primaryInventorySystem.RemoveFromInventory(data, amount);
+    }
+
 }

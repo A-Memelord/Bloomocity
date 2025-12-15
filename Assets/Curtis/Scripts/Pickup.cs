@@ -8,6 +8,7 @@ public class Pickup : MonoBehaviour
     public Transform originalPoint;
     private bool positionSet;
     private bool pickedUp;
+    public LayerMask layer;
 
     void Start()
     {
@@ -22,7 +23,10 @@ public class Pickup : MonoBehaviour
             transform.localRotation = rotation;
         }
 
-        if (pickedUp)
+        Physics.BoxCast(transform.position, GetComponent<BoxCollider>().size, Vector3.zero, out RaycastHit hit, Quaternion.identity, 0, layer);
+        Debug.Log(hit.collider?.name??"none");
+
+        if (pickedUp && !hit.collider)
         {
             pickupPoint.transform.Translate(Camera.main.transform.forward * Time.deltaTime * 300 * Input.GetAxis("Mouse ScrollWheel"), Space.World);
         }

@@ -419,7 +419,7 @@ MonoBehaviour:
   PickupRadius: 1
   attractionRange: 3.5
   attractionSpeed: 10
-  ItemData: {fileID: 11400000, guid: c26db2e9c53fc784b81749c07eefdc0d, type: 2}
+  ItemData: {fileID: 11400000, guid: 6d212a7df194a904883b855ccfdca392, type: 2}
   itemSaveData:
     itemData: {fileID: 0}
     pos: {x: 0, y: 0, z: 0}
@@ -772,7 +772,7 @@ MonoBehaviour:
   PickupRadius: 1
   attractionRange: 3.5
   attractionSpeed: 10
-  ItemData: {fileID: 11400000, guid: 6d212a7df194a904883b855ccfdca392, type: 2}
+  ItemData: {fileID: 11400000, guid: 65cf8543087e84c46b17a3e01dfcddb3, type: 2}
   itemSaveData:
     itemData: {fileID: 0}
     pos: {x: 0, y: 0, z: 0}
@@ -1012,6 +1012,10 @@ MonoBehaviour:
   - {fileID: 186486744}
   - {fileID: 2030054447}
   - {fileID: 2034193120}
+  SeedPlacing: {fileID: 924159599364489040, guid: f4f7fbbfca23aa44cab8ab935aa5d184, type: 3}
+  SeedPlacingValid: {fileID: 2100000, guid: 532b43af79faf1b489fb9831391f1a0f, type: 2}
+  SeedPlacingNotValid: {fileID: 2100000, guid: 492a97e7f665ac04b9e6f74102f15271, type: 2}
+  Player: {fileID: 377786168}
 --- !u!1 &132844109
 GameObject:
   m_ObjectHideFlags: 0
@@ -1614,7 +1618,7 @@ MonoBehaviour:
   PickupRadius: 1
   attractionRange: 3.5
   attractionSpeed: 10
-  ItemData: {fileID: 11400000, guid: 6d212a7df194a904883b855ccfdca392, type: 2}
+  ItemData: {fileID: 11400000, guid: 65cf8543087e84c46b17a3e01dfcddb3, type: 2}
   itemSaveData:
     itemData: {fileID: 0}
     pos: {x: 0, y: 0, z: 0}
@@ -2053,6 +2057,11 @@ PrefabInstance:
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5926007888812963581, guid: 5df2ed611493ea640b81742eed90857b, type: 3}
   m_PrefabInstance: {fileID: 364057838}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &377786168 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5929895952825808785, guid: 51188e8c7f6a6fd41ae53032a8045839, type: 3}
+  m_PrefabInstance: {fileID: 1756413158}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &405532485
 PrefabInstance:
@@ -2564,7 +2573,7 @@ MonoBehaviour:
   PickupRadius: 1
   attractionRange: 3.5
   attractionSpeed: 10
-  ItemData: {fileID: 11400000, guid: 6d212a7df194a904883b855ccfdca392, type: 2}
+  ItemData: {fileID: 11400000, guid: 65cf8543087e84c46b17a3e01dfcddb3, type: 2}
   itemSaveData:
     itemData: {fileID: 0}
     pos: {x: 0, y: 0, z: 0}
@@ -2864,7 +2873,7 @@ MonoBehaviour:
   PickupRadius: 1
   attractionRange: 3.5
   attractionSpeed: 10
-  ItemData: {fileID: 11400000, guid: c26db2e9c53fc784b81749c07eefdc0d, type: 2}
+  ItemData: {fileID: 11400000, guid: 6d212a7df194a904883b855ccfdca392, type: 2}
   itemSaveData:
     itemData: {fileID: 0}
     pos: {x: 0, y: 0, z: 0}
@@ -3402,7 +3411,7 @@ MonoBehaviour:
   PickupRadius: 1
   attractionRange: 3.5
   attractionSpeed: 10
-  ItemData: {fileID: 11400000, guid: c26db2e9c53fc784b81749c07eefdc0d, type: 2}
+  ItemData: {fileID: 11400000, guid: 6d212a7df194a904883b855ccfdca392, type: 2}
   itemSaveData:
     itemData: {fileID: 0}
     pos: {x: 0, y: 0, z: 0}
@@ -3779,7 +3788,7 @@ MonoBehaviour:
   PickupRadius: 1
   attractionRange: 3.5
   attractionSpeed: 10
-  ItemData: {fileID: 11400000, guid: c26db2e9c53fc784b81749c07eefdc0d, type: 2}
+  ItemData: {fileID: 11400000, guid: 6d212a7df194a904883b855ccfdca392, type: 2}
   itemSaveData:
     itemData: {fileID: 0}
     pos: {x: 0, y: 0, z: 0}
@@ -4728,7 +4737,7 @@ MonoBehaviour:
   PickupRadius: 1
   attractionRange: 3.5
   attractionSpeed: 10
-  ItemData: {fileID: 11400000, guid: 6d212a7df194a904883b855ccfdca392, type: 2}
+  ItemData: {fileID: 11400000, guid: 65cf8543087e84c46b17a3e01dfcddb3, type: 2}
   itemSaveData:
     itemData: {fileID: 0}
     pos: {x: 0, y: 0, z: 0}
@@ -4845,7 +4854,7 @@ MonoBehaviour:
   PickupRadius: 1
   attractionRange: 3.5
   attractionSpeed: 10
-  ItemData: {fileID: 11400000, guid: c26db2e9c53fc784b81749c07eefdc0d, type: 2}
+  ItemData: {fileID: 11400000, guid: 6d212a7df194a904883b855ccfdca392, type: 2}
   itemSaveData:
     itemData: {fileID: 0}
     pos: {x: 0, y: 0, z: 0}
@@ -5152,7 +5161,7 @@ MonoBehaviour:
   PickupRadius: 1
   attractionRange: 3.5
   attractionSpeed: 10
-  ItemData: {fileID: 11400000, guid: c26db2e9c53fc784b81749c07eefdc0d, type: 2}
+  ItemData: {fileID: 11400000, guid: 6d212a7df194a904883b855ccfdca392, type: 2}
   itemSaveData:
     itemData: {fileID: 0}
     pos: {x: 0, y: 0, z: 0}
@@ -5426,7 +5435,7 @@ MonoBehaviour:
   PickupRadius: 1
   attractionRange: 3.5
   attractionSpeed: 10
-  ItemData: {fileID: 11400000, guid: 6d212a7df194a904883b855ccfdca392, type: 2}
+  ItemData: {fileID: 11400000, guid: 65cf8543087e84c46b17a3e01dfcddb3, type: 2}
   itemSaveData:
     itemData: {fileID: 0}
     pos: {x: 0, y: 0, z: 0}
@@ -10569,7 +10578,7 @@ MonoBehaviour:
   PickupRadius: 1
   attractionRange: 3.5
   attractionSpeed: 10
-  ItemData: {fileID: 11400000, guid: c26db2e9c53fc784b81749c07eefdc0d, type: 2}
+  ItemData: {fileID: 11400000, guid: 6d212a7df194a904883b855ccfdca392, type: 2}
   itemSaveData:
     itemData: {fileID: 0}
     pos: {x: 0, y: 0, z: 0}
@@ -10861,7 +10870,7 @@ MonoBehaviour:
   PickupRadius: 1
   attractionRange: 3.5
   attractionSpeed: 10
-  ItemData: {fileID: 11400000, guid: c26db2e9c53fc784b81749c07eefdc0d, type: 2}
+  ItemData: {fileID: 11400000, guid: 6d212a7df194a904883b855ccfdca392, type: 2}
   itemSaveData:
     itemData: {fileID: 0}
     pos: {x: 0, y: 0, z: 0}
@@ -10958,6 +10967,37 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: -20}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1462118290
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1462118291}
+  m_Layer: 0
+  m_Name: '[Plants]'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1462118291
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1462118290}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1471291698
 GameObject:
   m_ObjectHideFlags: 0
@@ -11260,7 +11300,7 @@ MonoBehaviour:
   PickupRadius: 1
   attractionRange: 3.5
   attractionSpeed: 10
-  ItemData: {fileID: 11400000, guid: c26db2e9c53fc784b81749c07eefdc0d, type: 2}
+  ItemData: {fileID: 11400000, guid: 6d212a7df194a904883b855ccfdca392, type: 2}
   itemSaveData:
     itemData: {fileID: 0}
     pos: {x: 0, y: 0, z: 0}
@@ -13341,7 +13381,7 @@ MonoBehaviour:
   PickupRadius: 1
   attractionRange: 3.5
   attractionSpeed: 10
-  ItemData: {fileID: 11400000, guid: 6d212a7df194a904883b855ccfdca392, type: 2}
+  ItemData: {fileID: 11400000, guid: 65cf8543087e84c46b17a3e01dfcddb3, type: 2}
   itemSaveData:
     itemData: {fileID: 0}
     pos: {x: 0, y: 0, z: 0}
@@ -14373,7 +14413,7 @@ MonoBehaviour:
   PickupRadius: 1
   attractionRange: 3.5
   attractionSpeed: 10
-  ItemData: {fileID: 11400000, guid: 6d212a7df194a904883b855ccfdca392, type: 2}
+  ItemData: {fileID: 11400000, guid: 65cf8543087e84c46b17a3e01dfcddb3, type: 2}
   itemSaveData:
     itemData: {fileID: 0}
     pos: {x: 0, y: 0, z: 0}
@@ -14614,7 +14654,7 @@ MonoBehaviour:
   PickupRadius: 1
   attractionRange: 3.5
   attractionSpeed: 10
-  ItemData: {fileID: 11400000, guid: 6d212a7df194a904883b855ccfdca392, type: 2}
+  ItemData: {fileID: 11400000, guid: 65cf8543087e84c46b17a3e01dfcddb3, type: 2}
   itemSaveData:
     itemData: {fileID: 0}
     pos: {x: 0, y: 0, z: 0}
@@ -14731,7 +14771,7 @@ MonoBehaviour:
   PickupRadius: 1
   attractionRange: 3.5
   attractionSpeed: 10
-  ItemData: {fileID: 11400000, guid: 6d212a7df194a904883b855ccfdca392, type: 2}
+  ItemData: {fileID: 11400000, guid: 65cf8543087e84c46b17a3e01dfcddb3, type: 2}
   itemSaveData:
     itemData: {fileID: 0}
     pos: {x: 0, y: 0, z: 0}
@@ -14897,10 +14937,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 82800350608835705, guid: 5a9989bfd3f9ade43b5177c7183163b9, type: 3}
-      propertyPath: _id
-      value: a2f588f4-3fda-439d-9731-90bdafc306cb
-      objectReference: {fileID: 0}
     - target: {fileID: 5838365809253970787, guid: 5a9989bfd3f9ade43b5177c7183163b9, type: 3}
       propertyPath: m_Name
       value: SmallChest
@@ -14945,10 +14981,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7193885869749688254, guid: 5a9989bfd3f9ade43b5177c7183163b9, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 7f36dfa32f540dc4ca3675245a413e9a, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14962,10 +14994,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 192310282268250470, guid: 6cb7e7b775cac4a41b9402dc3b1c9d91, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 7f36dfa32f540dc4ca3675245a413e9a, type: 2}
     - target: {fileID: 602440612231328979, guid: 6cb7e7b775cac4a41b9402dc3b1c9d91, type: 3}
       propertyPath: m_LocalPosition.x
       value: 14.19
@@ -15010,10 +15038,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: LargeChest
       objectReference: {fileID: 0}
-    - target: {fileID: 7487077243122564773, guid: 6cb7e7b775cac4a41b9402dc3b1c9d91, type: 3}
-      propertyPath: _id
-      value: 032f98fd-d23c-4a59-9c90-5b9d15d1d1b4
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15037,4 +15061,5 @@ SceneRoots:
   - {fileID: 4831002015395638037}
   - {fileID: 7404034834352477869}
   - {fileID: 1418122228}
+  - {fileID: 1462118291}
   - {fileID: 1842482915}
