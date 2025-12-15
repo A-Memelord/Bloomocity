@@ -51,12 +51,43 @@ public class InventorySystem
         return false;
     }
 
+    public bool RemoveFromInventory(InventoryItemData item, int amountToRemove)
+    {
+        if (!ContainsItem(item, out List<InventorySlot> slots))
+            return false;
+
+        foreach (var slot in slots)
+        {
+            if (slot.StackSize >= amountToRemove)
+            {
+                slot.AddToStack(-amountToRemove);
+
+                // If stack becomes zero -> clear
+                if (slot.StackSize <= 0)
+                    slot.ClearSlot();
+
+                OnInventorySlotChanged?.Invoke(slot);
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+
+    //public bool ContainsItem(InventoryItemData itemToAdd, out List<InventorySlot> invSlot)
+    //{
+    //    invSlot = inventorySlots.Where(i  => i.ItemData == itemToAdd).ToList();
+
+    //    return invSlot == null ? false : true;
+    //}
+
     public bool ContainsItem(InventoryItemData itemToAdd, out List<InventorySlot> invSlot)
     {
-        invSlot = inventorySlots.Where(i  => i.ItemData == itemToAdd).ToList();
-        
-        return invSlot == null ? false : true;
+        invSlot = inventorySlots.Where(i => i.ItemData == itemToAdd).ToList();
+        return invSlot.Count > 0;  // FIX
     }
+
 
     public bool HasFreeSlot(out InventorySlot freeSlot)
     {

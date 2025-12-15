@@ -1,4 +1,4 @@
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class ShopKeeper : MonoBehaviour, IInteractable
 {
     [SerializeField] private ShopItemList _shopItemsHeld;
-    [SerializeField] private ShopSystem _shopSystem;
+    [SerializeField, HideInInspector] private ShopSystem _shopSystem;
 
     public GameObject shopUI;
     private Transform _player;
@@ -24,22 +24,48 @@ public class ShopKeeper : MonoBehaviour, IInteractable
 
     private void Awake()
     {
-        _shopSystem = new ShopSystem(_shopItemsHeld.Items.Count, _shopItemsHeld.MaxAllowedMoney, _shopItemsHeld.BuyMarkup, _shopItemsHeld.SellMarkup);
+        print("Working");
+        _shopSystem =new ShopSystem(_shopItemsHeld.Items.Count, _shopItemsHeld.MaxAllowedMoney, _shopItemsHeld.BuyMarkup, _shopItemsHeld.SellMarkup);
+        print("Working1");
+        //foreach (var item in _shopItemsHeld.Items)
+        //{
+        //    print(item.ItemData.name);
+        //    _shopSystem.AddToShop(item.ItemData, item.Amount);
+        //}
 
         foreach (var item in _shopItemsHeld.Items)
         {
-            print(item.ItemData.name);
+            if (item.ItemData == null)
+            {
+                Debug.LogError("❌ Shop Item is NULL.");
+                continue;
+            }
+
+            if (item.ItemData == null)
+            {
+                Debug.LogError("❌ ItemData is NULL on shop entry: " + item);
+                continue;
+            }
+
+            Debug.Log("✔ Found item: " + item.ItemData.name);
+
             _shopSystem.AddToShop(item.ItemData, item.Amount);
         }
+
+
+
+        print("Working2");
 
         if (_player == null)
         {
             _player = GameObject.FindGameObjectWithTag("Player").transform;
         }
+        print("Working3");
     }
 
     private void Update()
     {
+        print("Working4");
         if (_player == null)
         {
             _player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -53,7 +79,8 @@ public class ShopKeeper : MonoBehaviour, IInteractable
         {
             isInRange = true;          // mark as entered
             shopUI.SetActive(true);        // show UI
-            PlayerCam.instance.CameraLock(false);
+            if (PlayerCam.instance != null)
+                PlayerCam.instance.CameraLock(false);
         }
 
         // EXIT RANGE
@@ -61,7 +88,8 @@ public class ShopKeeper : MonoBehaviour, IInteractable
         {
             isInRange = false;         // mark as exited
             shopUI.SetActive(false);       // hide UI
-            PlayerCam.instance.CameraLock(true);
+            if (PlayerCam.instance != null)
+                PlayerCam.instance.CameraLock(true);
         }
     }
 

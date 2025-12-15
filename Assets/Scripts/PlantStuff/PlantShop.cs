@@ -14,7 +14,7 @@ public class PlantShop : MonoBehaviour
     public PlantShopObject plantShopObjects;
 
     public double plantSellValue;
-    private bool _buyBool = false;
+    private bool _buyBool = true;
 
     public void Awake()
     {
