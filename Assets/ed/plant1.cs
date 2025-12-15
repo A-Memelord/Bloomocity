@@ -15,6 +15,9 @@ public class plant1 : MonoBehaviour
     public GameObject two;
     public GameObject three;
 
+    public float length1;
+    public float length2;
+
     public GameObject root;
     public GameObject holder;
 
@@ -25,7 +28,6 @@ public class plant1 : MonoBehaviour
 
     public bool is_root = true;
 
-    public List<Vector3> root_plant_data;
     public Random random = new();
 
     public float lifeTime;
@@ -52,7 +54,7 @@ public class plant1 : MonoBehaviour
         if (is_root)
         {
             root = this.gameObject;
-            add_data(transform.position);
+            //add_data(transform.position);
         }
         StartCoroutine(Grow());
     }
@@ -69,6 +71,7 @@ public class plant1 : MonoBehaviour
             root.GetComponent<plant1>().grow_count -= 1;
             float difference = random.NextFloat(0.1f, 0.2f);
             float growth = random.NextFloat(0.5f, 0.8f);
+            length1 = growth;
 
             for (float t = 0f; t < 1; t += Time.deltaTime * difference)
             {
@@ -87,12 +90,13 @@ public class plant1 : MonoBehaviour
                     }
                 }
             }
-            root.GetComponent<plant1>().add_data(new Vector3(growth, 0, 0));
+            //root.GetComponent<plant1>().add_data(new Vector3(growth, 0, 0));
 
             two.transform.rotation = Quaternion.Euler(random.NextFloat(-45, 45), random.NextFloat(-45, 45), random.NextFloat(-45, 45));
-            root.GetComponent<plant1>().add_data(two.transform.eulerAngles);
+            //root.GetComponent<plant1>().add_data(two.transform.eulerAngles);
             float difference2 = random.NextFloat(0.1f, 0.2f);
             float growth2 = random.NextFloat(0.5f, 0.8f);
+            length2 = growth2;
             bool wall = false;
             while (wall == true)
             {
@@ -122,7 +126,7 @@ public class plant1 : MonoBehaviour
                     }
                 }
             }
-            root.GetComponent<plant1>().add_data(one.transform.position);
+            //root.GetComponent<plant1>().add_data(two.transform.position);
 
             if (root.GetComponent<plant1>().grow_count != 0)
             {
@@ -166,12 +170,5 @@ public class plant1 : MonoBehaviour
         {
             two.transform.localScale = new Vector3(1, data[3].x, 1);
         }
-
-    }
-
-    public void add_data(Vector3 data)
-    {
-        root_plant_data.Add(data);
-
     }
 }
