@@ -15,17 +15,20 @@ public class plant1 : MonoBehaviour
     public GameObject two;
     public GameObject three;
 
+    public float length1;
+    public float length2;
+
     public GameObject root;
     public GameObject holder;
 
     public int grow_count = 5;
+    public GameObject current_stem;
 
     public int plantType = 1;
     public int seed;
 
     public bool is_root = true;
 
-    public List<Vector3> root_plant_data;
     public Random random = new();
 
     public float lifeTime;
@@ -52,9 +55,8 @@ public class plant1 : MonoBehaviour
         if (is_root)
         {
             root = this.gameObject;
-            add_data(transform.position);
+            //add_data(transform.position);
         }
-        StartCoroutine(Grow());
     }
 
     private void Update()
@@ -69,6 +71,7 @@ public class plant1 : MonoBehaviour
             root.GetComponent<plant1>().grow_count -= 1;
             float difference = random.NextFloat(0.1f, 0.2f);
             float growth = random.NextFloat(0.5f, 0.8f);
+            length1 = growth;
 
             for (float t = 0f; t < 1; t += Time.deltaTime * difference)
             {
@@ -80,19 +83,20 @@ public class plant1 : MonoBehaviour
                     if (rng == 1)
                     {
                         GameObject new_plant_detail = Instantiate(plant_detail, one.transform.position, Quaternion.Euler(0, 0, 0), one.transform);
-                        new_plant_detail.transform.SetParent(null);
+                        new_plant_detail.transform.SetParent(holder.transform);
                         new_plant_detail.GetComponent<plant_detail1>().stem.GetComponent<MeshRenderer>().material = stem.GetComponent<SkinnedMeshRenderer>().material;
                         new_plant_detail.transform.position = two.transform.position;
                         new_plant_detail.transform.localScale = Vector3.one;
                     }
                 }
             }
-            root.GetComponent<plant1>().add_data(new Vector3(growth, 0, 0));
+            //root.GetComponent<plant1>().add_data(new Vector3(growth, 0, 0));
 
             two.transform.rotation = Quaternion.Euler(random.NextFloat(-45, 45), random.NextFloat(-45, 45), random.NextFloat(-45, 45));
-            root.GetComponent<plant1>().add_data(two.transform.eulerAngles);
+            //root.GetComponent<plant1>().add_data(two.transform.eulerAngles);
             float difference2 = random.NextFloat(0.1f, 0.2f);
             float growth2 = random.NextFloat(0.5f, 0.8f);
+            length2 = growth2;
             bool wall = false;
             while (wall == true)
             {
@@ -115,14 +119,14 @@ public class plant1 : MonoBehaviour
                     if (rng == 1)
                     {
                         GameObject new_plant_detail = Instantiate(plant_detail, one.transform.position, Quaternion.Euler(0, 0, 0), one.transform);
-                        new_plant_detail.transform.SetParent(null);
+                        new_plant_detail.transform.SetParent(holder.transform);
                         new_plant_detail.GetComponent<plant_detail1>().stem.GetComponent<MeshRenderer>().material = stem.GetComponent<SkinnedMeshRenderer>().material;
                         new_plant_detail.transform.position = two.transform.position;
                         new_plant_detail.transform.localScale = Vector3.one;
                     }
                 }
             }
-            root.GetComponent<plant1>().add_data(one.transform.position);
+            //root.GetComponent<plant1>().add_data(two.transform.position);
 
             if (root.GetComponent<plant1>().grow_count != 0)
             {
@@ -142,6 +146,8 @@ public class plant1 : MonoBehaviour
                     new_plant_part.transform.rotation = three.transform.rotation;
                     new_plant_part.GetComponent<plant1>().one.transform.localScale = new Vector3(1, 0.01f, 1);
                     new_plant_part.GetComponent<plant1>().two.transform.localScale = new Vector3(1, 0f, 1);
+                    new_plant_part.GetComponent<plant1>().StartCoroutine(new_plant_part.GetComponent<plant1>().Grow());
+                    current_stem = new_plant_part;
                 }
             }
         }
@@ -166,12 +172,5 @@ public class plant1 : MonoBehaviour
         {
             two.transform.localScale = new Vector3(1, data[3].x, 1);
         }
-
-    }
-
-    public void add_data(Vector3 data)
-    {
-        root_plant_data.Add(data);
-
     }
 }
