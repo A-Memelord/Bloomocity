@@ -1,0 +1,123 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEditor.SceneTemplate;
+using UnityEngine;
+
+[System.Serializable]
+public struct Data
+{
+    public Vector3 stem_1_pos;
+    public Vector3 stem_1_rot;
+    public Vector3 stem_1_scale;
+    public Vector3 stem_2_rot;
+    public Vector3 stem_2_scale;
+    public Vector3 stem_2_endpos;
+}
+
+public class plant1_saver : MonoBehaviour
+{
+    public List<Data> plant_data;
+    public List<Vector3> plant_detail_data;
+    public GameObject plant1;
+    public GameObject plant_detail1;
+    public GameObject root;
+
+    public int growth_left = 5;
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        if (plant_data.Count == 0)
+        {
+            root.GetComponent<plant1>().grow_count = growth_left;
+            root.GetComponent<plant1>().StartCoroutine(root.GetComponent<plant1>().Grow());
+            StartCoroutine(save_plant());
+        }
+        else
+        {
+            load_plant();
+        }
+        // StartCoroutine(save_plant());
+        //if (plant_data != null)
+        //{
+        //   GameObject new_plant1 = Instantiate(plant1, plant_data[0], Quaternion.Euler(plant_data[1]), transform);
+        //}
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+    public IEnumerator save_plant()
+    {
+        yield return new WaitForSeconds(10f);
+        plant_data.Clear();
+        plant_detail_data.Clear();
+
+        foreach (Transform child in transform)
+        {
+            if (child.GetComponent<plant1>())
+            {
+                Data data = new()
+                {
+                    stem_1_pos = child.GetComponent<plant1>().transform.position,
+                    stem_1_rot = child.GetComponent<plant1>().transform.localEulerAngles,
+                    stem_1_scale = new Vector3(1, child.GetComponent<plant1>().length1, 1),
+                    stem_2_rot = child.GetComponent<plant1>().two.transform.eulerAngles,
+                    stem_2_scale = new Vector3(1, child.GetComponent<plant1>().length2, 1),
+                    stem_2_endpos = child.GetComponent<plant1>().three.transform.position
+                };
+
+                plant_data.Add(data);
+            }
+            if (child.GetComponent<plant_detail1>())
+            {
+                plant_detail_data.Add(child.GetComponent<plant_detail1>().transform.position);
+            }
+        }
+        growth_left = root.GetComponent<plant1>().grow_count;
+        StartCoroutine(save_plant());
+    }
+
+    public void load_plant()
+    {
+        for (int i = 0; i < plant_data.Count / 5; i++)
+        {
+            GameObject new_plant1 = Instantiate(plant1, plant_data[i].stem_1_pos, Quaternion.Euler(plant_data[i].stem_1_rot), transform);
+            new_plant1.GetComponent<plant1>().one.transform.localScale = new Vector3(1, plant_data[i].stem_1_scale.y, 1);
+            new_plant1.GetComponent<plant1>().two.transform.eulerAngles = plant_data[i].stem_2_rot;
+            new_plant1.GetComponent<plant1>().two.transform.localScale = new Vector3(1, plant_data[i].stem_2_scale.y, 1);
+        }
+
+        for (int i = 0; i < plant_detail_data.Count; i++)
+        {
+            GameObject new_plant_detail1 = Instantiate(plant_detail1, plant_detail_data[i], Quaternion.Euler(plant_detail_data[i]), transform);
+        }
+
+        if (growth_left != 0)
+        {
+            GameObject continued_plant = Instantiate(plant1, plant_data[^1].stem_2_endpos, Quaternion.Euler(plant_data[^1].stem_2_rot), transform);
+            continued_plant.GetComponent<plant1>().grow_count = growth_left;
+            continued_plant.GetComponent<plant1>().root = continued_plant;
+            continued_plant.GetComponent<plant1>().is_root = true;
+            continued_plant.GetComponent<plant1>().holder = this.gameObject;
+            continued_plant.GetComponent<plant1>().StartCoroutine(continued_plant.GetComponent<plant1>().Grow());
+        }
+    }
+
+    /*
+    private void OnDestroy()
+    {
+        SaveDataController.Instance.CurrentData.plantedPlants.Add(new PlantSaveData
+        {
+            plantType = this.plantType,
+            seed = this.seed,
+            pos = this.transform.position,
+            rot = this.transform.rotation,
+            scale = this.transform.localScale,
+            lifeTime = this.lifeTime
+        });
+    }
+    */
+}

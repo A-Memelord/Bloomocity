@@ -45,8 +45,137 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 707262e3c5eec3b4f8474c9f07838822, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plant_data: []
+  plant_data:
+  - stem_1_pos: {x: 0, y: 0, z: 0}
+    stem_1_rot: {x: 0, y: 0, z: 0}
+    stem_1_scale: {x: 0, y: 0, z: 0}
+    stem_2_rot: {x: 0, y: 0, z: 0}
+    stem_2_scale: {x: 0, y: 0, z: 0}
+  - stem_1_pos: {x: 0, y: 0, z: 0}
+    stem_1_rot: {x: 0, y: 0, z: 0}
+    stem_1_scale: {x: 0, y: 0, z: 0}
+    stem_2_rot: {x: 0, y: 0, z: 0}
+    stem_2_scale: {x: 0, y: 0, z: 0}
+  - stem_1_pos: {x: 0, y: 0, z: 0}
+    stem_1_rot: {x: 0, y: 0, z: 0}
+    stem_1_scale: {x: 0, y: 0, z: 0}
+    stem_2_rot: {x: 0, y: 0, z: 0}
+    stem_2_scale: {x: 0, y: 0, z: 0}
+  - stem_1_pos: {x: 0, y: 0, z: 0}
+    stem_1_rot: {x: 0, y: 0, z: 0}
+    stem_1_scale: {x: 0, y: 0, z: 0}
+    stem_2_rot: {x: 0, y: 0, z: 0}
+    stem_2_scale: {x: 0, y: 0, z: 0}
+  - stem_1_pos: {x: 0, y: 0, z: 0}
+    stem_1_rot: {x: 0, y: 0, z: 0}
+    stem_1_scale: {x: 0, y: 0, z: 0}
+    stem_2_rot: {x: 0, y: 0, z: 0}
+    stem_2_scale: {x: 0, y: 0, z: 0}
+  - stem_1_pos: {x: 0, y: 0, z: 0}
+    stem_1_rot: {x: 0, y: 0, z: 0}
+    stem_1_scale: {x: 0, y: 0, z: 0}
+    stem_2_rot: {x: 0, y: 0, z: 0}
+    stem_2_scale: {x: 0, y: 0, z: 0}
+  - stem_1_pos: {x: 0, y: 0, z: 0}
+    stem_1_rot: {x: 0, y: 0, z: 0}
+    stem_1_scale: {x: 0, y: 0, z: 0}
+    stem_2_rot: {x: 0, y: 0, z: 0}
+    stem_2_scale: {x: 0, y: 0, z: 0}
+  - stem_1_pos: {x: 0, y: 0, z: 0}
+    stem_1_rot: {x: 0, y: 0, z: 0}
+    stem_1_scale: {x: 0, y: 0, z: 0}
+    stem_2_rot: {x: 0, y: 0, z: 0}
+    stem_2_scale: {x: 0, y: 0, z: 0}
+  - stem_1_pos: {x: 0, y: 0, z: 0}
+    stem_1_rot: {x: 0, y: 0, z: 0}
+    stem_1_scale: {x: 0, y: 0, z: 0}
+    stem_2_rot: {x: 0, y: 0, z: 0}
+    stem_2_scale: {x: 0, y: 0, z: 0}
+  - stem_1_pos: {x: 0, y: 0, z: 0}
+    stem_1_rot: {x: 0, y: 0, z: 0}
+    stem_1_scale: {x: 0, y: 0, z: 0}
+    stem_2_rot: {x: 0, y: 0, z: 0}
+    stem_2_scale: {x: 0, y: 0, z: 0}
+  - stem_1_pos: {x: 0, y: 0, z: 0}
+    stem_1_rot: {x: 0, y: 0, z: 0}
+    stem_1_scale: {x: 0, y: 0, z: 0}
+    stem_2_rot: {x: 0, y: 0, z: 0}
+    stem_2_scale: {x: 0, y: 0, z: 0}
+  - stem_1_pos: {x: 0, y: 0, z: 0}
+    stem_1_rot: {x: 0, y: 0, z: 0}
+    stem_1_scale: {x: 0, y: 0, z: 0}
+    stem_2_rot: {x: 0, y: 0, z: 0}
+    stem_2_scale: {x: 0, y: 0, z: 0}
+  - stem_1_pos: {x: 0, y: 0, z: 0}
+    stem_1_rot: {x: 0, y: 0, z: 0}
+    stem_1_scale: {x: 0, y: 0, z: 0}
+    stem_2_rot: {x: 0, y: 0, z: 0}
+    stem_2_scale: {x: 0, y: 0, z: 0}
+  - stem_1_pos: {x: 0, y: 0, z: 0}
+    stem_1_rot: {x: 0, y: 0, z: 0}
+    stem_1_scale: {x: 0, y: 0, z: 0}
+    stem_2_rot: {x: 0, y: 0, z: 0}
+    stem_2_scale: {x: 0, y: 0, z: 0}
+  - stem_1_pos: {x: 0, y: 0, z: 0}
+    stem_1_rot: {x: 0, y: 0, z: 0}
+    stem_1_scale: {x: 0, y: 0, z: 0}
+    stem_2_rot: {x: 0, y: 0, z: 0}
+    stem_2_scale: {x: 0, y: 0, z: 0}
+  - stem_1_pos: {x: 0, y: 0, z: 0}
+    stem_1_rot: {x: 0, y: 0, z: 0}
+    stem_1_scale: {x: 0, y: 0, z: 0}
+    stem_2_rot: {x: 0, y: 0, z: 0}
+    stem_2_scale: {x: 0, y: 0, z: 0}
+  - stem_1_pos: {x: 0, y: 0, z: 0}
+    stem_1_rot: {x: 0, y: 0, z: 0}
+    stem_1_scale: {x: 0, y: 0, z: 0}
+    stem_2_rot: {x: 0, y: 0, z: 0}
+    stem_2_scale: {x: 0, y: 0, z: 0}
+  - stem_1_pos: {x: 0, y: 0, z: 0}
+    stem_1_rot: {x: 0, y: 0, z: 0}
+    stem_1_scale: {x: 0, y: 0, z: 0}
+    stem_2_rot: {x: 0, y: 0, z: 0}
+    stem_2_scale: {x: 0, y: 0, z: 0}
+  - stem_1_pos: {x: 0, y: 0, z: 0}
+    stem_1_rot: {x: 0, y: 0, z: 0}
+    stem_1_scale: {x: 0, y: 0, z: 0}
+    stem_2_rot: {x: 0, y: 0, z: 0}
+    stem_2_scale: {x: 0, y: 0, z: 0}
+  - stem_1_pos: {x: 0, y: 0, z: 0}
+    stem_1_rot: {x: 0, y: 0, z: 0}
+    stem_1_scale: {x: 0, y: 0, z: 0}
+    stem_2_rot: {x: 0, y: 0, z: 0}
+    stem_2_scale: {x: 0, y: 0, z: 0}
+  - stem_1_pos: {x: 0, y: 0, z: 0}
+    stem_1_rot: {x: 0, y: 0, z: 0}
+    stem_1_scale: {x: 0, y: 0, z: 0}
+    stem_2_rot: {x: 0, y: 0, z: 0}
+    stem_2_scale: {x: 0, y: 0, z: 0}
+  - stem_1_pos: {x: 0, y: 0, z: 0}
+    stem_1_rot: {x: 0, y: 0, z: 0}
+    stem_1_scale: {x: 0, y: 0, z: 0}
+    stem_2_rot: {x: 0, y: 0, z: 0}
+    stem_2_scale: {x: 0, y: 0, z: 0}
+  - stem_1_pos: {x: 0, y: 0, z: 0}
+    stem_1_rot: {x: 0, y: 0, z: 0}
+    stem_1_scale: {x: 0, y: 0, z: 0}
+    stem_2_rot: {x: 0, y: 0, z: 0}
+    stem_2_scale: {x: 0, y: 0, z: 0}
+  - stem_1_pos: {x: 0, y: 0, z: 0}
+    stem_1_rot: {x: 0, y: 0, z: 0}
+    stem_1_scale: {x: 0, y: 0, z: 0}
+    stem_2_rot: {x: 0, y: 0, z: 0}
+    stem_2_scale: {x: 0, y: 0, z: 0}
+  - stem_1_pos: {x: 0, y: 0, z: 0}
+    stem_1_rot: {x: 0, y: 0, z: 0}
+    stem_1_scale: {x: 0, y: 0, z: 0}
+    stem_2_rot: {x: 0, y: 0, z: 0}
+    stem_2_scale: {x: 0, y: 0, z: 0}
+  plant_detail_data: []
   plant1: {fileID: 8346523316295052394, guid: 44de772260d9c3f4fbb06111a1878e32, type: 3}
+  plant_detail1: {fileID: 1722430583689178289, guid: e4aeffeb2e0d6be4ebe027175f82063e, type: 3}
+  root: {fileID: 7621306918654650491}
+  growth_left: 5
 --- !u!1001 &1878173665186219025
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -111,5 +240,10 @@ PrefabInstance:
 --- !u!4 &5312809947774164684 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6028763544954510045, guid: 44de772260d9c3f4fbb06111a1878e32, type: 3}
+  m_PrefabInstance: {fileID: 1878173665186219025}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7621306918654650491 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8346523316295052394, guid: 44de772260d9c3f4fbb06111a1878e32, type: 3}
   m_PrefabInstance: {fileID: 1878173665186219025}
   m_PrefabAsset: {fileID: 0}

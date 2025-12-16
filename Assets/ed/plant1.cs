@@ -22,6 +22,7 @@ public class plant1 : MonoBehaviour
     public GameObject holder;
 
     public int grow_count = 5;
+    public GameObject current_stem;
 
     public int plantType = 1;
     public int seed;
@@ -56,7 +57,6 @@ public class plant1 : MonoBehaviour
             root = this.gameObject;
             //add_data(transform.position);
         }
-        StartCoroutine(Grow());
     }
 
     private void Update()
@@ -83,7 +83,7 @@ public class plant1 : MonoBehaviour
                     if (rng == 1)
                     {
                         GameObject new_plant_detail = Instantiate(plant_detail, one.transform.position, Quaternion.Euler(0, 0, 0), one.transform);
-                        new_plant_detail.transform.SetParent(null);
+                        new_plant_detail.transform.SetParent(holder.transform);
                         new_plant_detail.GetComponent<plant_detail1>().stem.GetComponent<MeshRenderer>().material = stem.GetComponent<SkinnedMeshRenderer>().material;
                         new_plant_detail.transform.position = two.transform.position;
                         new_plant_detail.transform.localScale = Vector3.one;
@@ -119,7 +119,7 @@ public class plant1 : MonoBehaviour
                     if (rng == 1)
                     {
                         GameObject new_plant_detail = Instantiate(plant_detail, one.transform.position, Quaternion.Euler(0, 0, 0), one.transform);
-                        new_plant_detail.transform.SetParent(null);
+                        new_plant_detail.transform.SetParent(holder.transform);
                         new_plant_detail.GetComponent<plant_detail1>().stem.GetComponent<MeshRenderer>().material = stem.GetComponent<SkinnedMeshRenderer>().material;
                         new_plant_detail.transform.position = two.transform.position;
                         new_plant_detail.transform.localScale = Vector3.one;
@@ -146,6 +146,8 @@ public class plant1 : MonoBehaviour
                     new_plant_part.transform.rotation = three.transform.rotation;
                     new_plant_part.GetComponent<plant1>().one.transform.localScale = new Vector3(1, 0.01f, 1);
                     new_plant_part.GetComponent<plant1>().two.transform.localScale = new Vector3(1, 0f, 1);
+                    new_plant_part.GetComponent<plant1>().StartCoroutine(new_plant_part.GetComponent<plant1>().Grow());
+                    current_stem = new_plant_part;
                 }
             }
         }
