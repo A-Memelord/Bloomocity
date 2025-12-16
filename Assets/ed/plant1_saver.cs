@@ -82,7 +82,12 @@ public class plant1_saver : MonoBehaviour
 
     public void load_plant()
     {
-        for (int i = 0; i < plant_data.Count / 5; i++)
+        foreach (Transform child in transform)
+        {
+            Destroy(child.gameObject);
+
+        }
+        for (int i = 0; i < plant_data.Count; i++)
         {
             GameObject new_plant1 = Instantiate(plant1, plant_data[i].stem_1_pos, Quaternion.Euler(plant_data[i].stem_1_rot), transform);
             new_plant1.GetComponent<plant1>().one.transform.localScale = new Vector3(1, plant_data[i].stem_1_scale.y, 1);
