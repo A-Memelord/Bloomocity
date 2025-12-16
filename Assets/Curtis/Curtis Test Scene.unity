@@ -21843,7 +21843,7 @@ GameObject:
   - component: {fileID: 489443933}
   m_Layer: 6
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41313,7 +41313,8 @@ MonoBehaviour:
   plantCostText: {fileID: 1584608306}
   buttonText: {fileID: 269336801}
   interactButton: {fileID: 1784768290}
-  plantShopObjects: {fileID: 11400000, guid: a5d72de1412fd7b44b157b6684f0d25a, type: 2}
+  player: {fileID: 0}
+  InventoryItemData: {fileID: 0}
   plantSellValue: 0
 --- !u!114 &770972909
 MonoBehaviour:

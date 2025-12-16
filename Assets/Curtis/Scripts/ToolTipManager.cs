@@ -1,7 +1,5 @@
 using UnityEngine;
 using TMPro;
-using UnityEditor.VersionControl;
-using JetBrains.Annotations;
 public class ToolTipManager : MonoBehaviour
 {
     public static ToolTipManager Instance;

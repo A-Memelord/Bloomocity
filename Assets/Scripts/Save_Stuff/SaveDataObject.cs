@@ -1,4 +1,3 @@
-using UnityEditor.Overlays;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "SaveDataObject", menuName = "Scriptable Objects/SaveDataObject")]
