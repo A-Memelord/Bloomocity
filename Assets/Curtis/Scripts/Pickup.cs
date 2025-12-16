@@ -28,7 +28,7 @@ public class Pickup : MonoBehaviour
 
         if (pickedUp && !hit.collider)
         {
-            pickupPoint.transform.Translate(Camera.main.transform.forward * Time.deltaTime * 300 * Input.GetAxis("Mouse ScrollWheel"), Space.World);
+            pickupPoint.transform.Translate(Camera.main.transform.forward * Time.deltaTime * 50 * Input.GetAxis("Mouse ScrollWheel"), Space.World);
         }
     }
 
