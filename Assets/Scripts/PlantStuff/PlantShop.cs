@@ -1,6 +1,7 @@
+using NUnit.Framework.Interfaces;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class PlantShop : MonoBehaviour
 {
@@ -10,8 +11,9 @@ public class PlantShop : MonoBehaviour
     public TMP_Text plantCostText;
     public TMP_Text buttonText;
     public GameObject interactButton;
+    public GameObject player;
 
-    public PlantShopObject plantShopObjects;
+    public InventoryItemData InventoryItemData;
 
     public double plantSellValue;
     private bool _buyBool = true;
@@ -23,8 +25,8 @@ public class PlantShop : MonoBehaviour
 
     void Start()
     {
-        plantNameText.text = plantShopObjects.plantName;
-        plantCostText.text = "$" + plantShopObjects.plantCost.ToString();
+        plantNameText.text = InventoryItemData.itemName;
+        plantCostText.text = "$" + InventoryItemData.value.ToString();
         buttonText.text = "Buy";
         interactButton.GetComponent<Image>().color = Color.green;
         interactButton.GetComponent<Button>().onClick.AddListener(Interact);
@@ -37,18 +39,18 @@ public class PlantShop : MonoBehaviour
 
     void Update()
     {
-        plantSellValue = plantShopObjects.plantCost * 2f;
+        plantSellValue = InventoryItemData.value * 2f;
 
         if (_buyBool == true)
         {
-            plantNameText.text = plantShopObjects.plantName;
-            plantCostText.text = "$" + plantShopObjects.plantCost.ToString();
+            plantNameText.text = InventoryItemData.itemName;
+            plantCostText.text = "$" + InventoryItemData.value.ToString();
             buttonText.text = "Buy";
             interactButton.GetComponent<Image>().color = Color.green;
         }
         else if (_buyBool == false)
         {
-            plantNameText.text = plantShopObjects.plantName;
+            plantNameText.text = InventoryItemData.itemName;
             plantCostText.text = "$" + plantSellValue.ToString();
             buttonText.text = "Sell";
             interactButton.GetComponent<Image>().color = Color.red;
@@ -57,15 +59,20 @@ public class PlantShop : MonoBehaviour
 
     public void Interact()
     {
+        var inventory = player.transform.GetComponent<PlayerInventoryHolder>();
+
         if (_buyBool == true)
         {
             // Buy Plant Logic Here
-            if (SaveDataController.Instance.CurrentData.Money >= plantShopObjects.plantCost)
+            if (SaveDataController.Instance.CurrentData.Money >= InventoryItemData.value)
             {
-                SaveDataController.Instance.CurrentData.Money -= plantShopObjects.plantCost;
+                SaveDataController.Instance.CurrentData.Money -= InventoryItemData.value;
 
                 // Add Plant To The Player's Inventory
+                
 
+                inventory.AddToInventory(InventoryItemData, 1);
+                print("Trigger");
             }
         }
         else if (_buyBool == false)
@@ -77,6 +84,7 @@ public class PlantShop : MonoBehaviour
 
                 // Remove Plant From The Player's Inventory
 
+                inventory.RemoveFromInventory(InventoryItemData, 1);
             }
         }
     }

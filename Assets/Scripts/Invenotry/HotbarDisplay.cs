@@ -1,5 +1,23 @@
 ﻿using UnityEngine;
 
+//
+// PSEUDOCODE / PLAN (detailed):
+// 1. Keep existing HotbarDisplay implementation unchanged except for the color comparison bug.
+// 2. Replace usage of (c - targetColor).sqrMagnitude which is invalid for UnityEngine.Color.
+// 3. Compute squared color distance manually by subtracting RGBA components and summing squares.
+//    - dr = c.r - targetColor.r
+//    - dg = c.g - targetColor.g
+//    - db = c.b - targetColor.b
+//    - da = c.a - targetColor.a
+//    - sqrDist = dr*dr + dg*dg + db*db + da*da
+// 4. Compare sqrDist with ColorToleranceSqr to decide validity.
+// 5. Return same boolean semantics as before.
+// 6. Leave all other logic intact to avoid changing behavior.
+// 
+// Implementation note: using manual component math avoids reliance on Vector types or extension methods
+// and fixes CS1061 error: 'Color' does not contain a definition for 'sqrMagnitude'.
+//
+
 public class HotbarDisplay : StaticInventoryDisplay
 {
     private int _maxIndexSize;
@@ -15,6 +33,8 @@ public class HotbarDisplay : StaticInventoryDisplay
     // Cached renderers for quick material updates and bounds computation
     private Renderer[] _previewRenderers;
 
+    // Tolerance for comparing colors (squared distance)
+    private const float ColorToleranceSqr = 0.001f;
 
     protected override void Start()
     {
@@ -22,7 +42,7 @@ public class HotbarDisplay : StaticInventoryDisplay
 
         if (slots == null || slots.Length == 0)
         {
-            Debug.LogError("❌ HotbarDisplay: slots[] is EMPTY! Did you assign the slots in the Inspector?");
+            Debug.LogError("HotbarDisplay: slots[] is Empty");
             return;
         }
 
@@ -92,30 +112,7 @@ public class HotbarDisplay : StaticInventoryDisplay
             return;                 // stop ALL preview logic
         }
 
-        // Handle left click use
-        if (Input.GetMouseButtonDown(0))
-        {
-            if (slot == null)
-            {
-                Debug.Log("❌ Slot has no inventory slot assigned.");
-                return;
-            }
-
-            if (slot.ItemData == null)
-            {
-                Debug.Log("❌ No item in selected slot.");
-                return;
-            }
-
-            Debug.Log("▶ Using item: " + slot.ItemData.name);
-            slot.ItemData.UseItem(_seedPlacingInstance.transform, inventory);
-
-            // After using, remove preview if present
-            DestroySeedPreview();
-            return;
-        }
-
-        // Not clicking: show/move preview if applicable
+        // Not clicking: show/move preview if applicable, OR prepare for confirming placement if clicked
         if (slot == null || slot.ItemData == null)
         {
             DestroySeedPreview();
@@ -182,6 +179,48 @@ public class HotbarDisplay : StaticInventoryDisplay
             // Update validity and apply material feedback
             bool valid = UpdatePreviewValidity(targetPos);
             ApplyPreviewMaterial(valid);
+
+            // Handle left click use AFTER preview has been positioned & material applied.
+            if (Input.GetMouseButtonDown(0))
+            {
+                if (slot == null)
+                {
+                    Debug.Log("❌ Slot has no inventory slot assigned.");
+                    return;
+                }
+
+                if (slot.ItemData == null)
+                {
+                    Debug.Log("❌ No item in selected slot.");
+                    return;
+                }
+
+                // Extra verification: if preview exists, require color-based verification AND physics-based verification.
+                bool previewColorValid = IsPreviewValidByColor();
+                bool physicsValid = UpdatePreviewValidity(targetPos); // re-check to be sure
+
+                if (_seedPlacingInstance != null)
+                {
+                    if (!previewColorValid)
+                    {
+                        Debug.Log("⛔ Placement blocked: preview indicates INVALID placement (color mismatch).");
+                        return;
+                    }
+
+                    if (!physicsValid)
+                    {
+                        Debug.Log("⛔ Placement blocked: physics collision detected.");
+                        return;
+                    }
+                }
+
+                Debug.Log("▶ Using item: " + slot.ItemData.name);
+                slot.ItemData.UseItem(_seedPlacingInstance.transform, inventory);
+
+                // After using, remove preview if present
+                DestroySeedPreview();
+                return;
+            }
         }
     }
 
@@ -315,6 +354,73 @@ public class HotbarDisplay : StaticInventoryDisplay
             Material[] mats = new Material[count];
             for (int i = 0; i < count; i++) mats[i] = chosen;
             r.materials = mats;
+        }
+    }
+
+    // Determine whether the preview's current materials indicate a "valid" placement via color comparison.
+    // Returns true only if:
+    //  - We have preview renderers and a SeedPlacingValid material
+    //  - All renderer materials have a main color matching SeedPlacingValid within tolerance
+    private bool IsPreviewValidByColor()
+    {
+        if (_seedPlacingInstance == null) return false;
+        if (_previewRenderers == null || _previewRenderers.Length == 0) return false;
+        if (SeedPlacingValid == null) return false;
+
+        Color targetColor = GetMaterialMainColor(SeedPlacingValid, out bool gotTarget);
+        if (!gotTarget) return false;
+
+        foreach (var r in _previewRenderers)
+        {
+            if (r == null) continue;
+            var mats = r.materials;
+            if (mats == null || mats.Length == 0) return false;
+
+            foreach (var m in mats)
+            {
+                if (m == null) return false;
+
+                Color c = GetMaterialMainColor(m, out bool got);
+                if (!got) return false;
+
+                // Compute squared distance between colors manually (Color doesn't have sqrMagnitude).
+                float dr = c.r - targetColor.r;
+                float dg = c.g - targetColor.g;
+                float db = c.b - targetColor.b;
+                float da = c.a - targetColor.a;
+                float sqrDist = dr * dr + dg * dg + db * db + da * da;
+
+                if (sqrDist > ColorToleranceSqr)
+                    return false;
+            }
+        }
+
+        return true;
+    }
+
+    // Helper: obtain main color from material. If material doesn't expose a color, return white and got=false.
+    private Color GetMaterialMainColor(Material mat, out bool got)
+    {
+        got = false;
+        if (mat == null) return Color.white;
+
+        // Standard property name for main tint is "_Color". Try that first.
+        if (mat.HasProperty("_Color"))
+        {
+            got = true;
+            return mat.GetColor("_Color");
+        }
+
+        // Fallback to Material.color property (maps to _Color in many cases)
+        try
+        {
+            got = true;
+            return mat.color;
+        }
+        catch
+        {
+            got = false;
+            return Color.white;
         }
     }
 

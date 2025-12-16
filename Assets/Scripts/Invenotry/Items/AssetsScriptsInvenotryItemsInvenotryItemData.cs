@@ -12,6 +12,7 @@ public class InventoryItemData : ScriptableObject
     public double Cost;
     public GameObject ItemPrefab; // Prefab Of The Item Just On The Ground So You Can Pick It Up
     public GameObject PlacedPrefab; // Prefab Of The Item Placed On The Ground
+    public double value;
 
     private void Start()
     {

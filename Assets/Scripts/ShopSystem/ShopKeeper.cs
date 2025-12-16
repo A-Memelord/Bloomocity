@@ -48,6 +48,7 @@ public class ShopKeeper : MonoBehaviour, IInteractable
             }
 
             Debug.Log("✔ Found item: " + item.ItemData.name);
+            Debug.Log("✔ Found item: " + item.ItemData.name);
 
             _shopSystem.AddToShop(item.ItemData, item.Amount);
         }

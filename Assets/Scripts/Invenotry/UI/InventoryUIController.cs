@@ -91,8 +91,8 @@ public class InventoryUIController : MonoBehaviour
     // Signature matches UnityAction<InventorySystem,int> so we accept those parameters even if unused.
     void CloseInventory(InventorySystem inv, int offset)
     {
-        if (inventoryPanel.gameObject.activeSelf)
-            inventoryPanel.gameObject.SetActive(false);
+        //if (inventoryPanel.gameObject.activeSelf)
+        //    inventoryPanel.gameObject.SetActive(false);
 
         if (playerBackpackPanel.gameObject.activeSelf)
             playerBackpackPanel.gameObject.SetActive(false);
