@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 7e375ff1ea10c5e4c99cb7af31ce1444
   - enabled: 1
+    path: Assets/Curtis/Curtis Test Scene.unity
+    guid: 5b44ccf51577b6448927724a7778ff25
+  - enabled: 0
     path: Assets/Curtis/Curtis Test Buildinga.unity
     guid: 6cd23714757602b4b9f58560b1cc1fec
   m_configObjects:

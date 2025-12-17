@@ -45,6 +45,7 @@ public class Pickup : MonoBehaviour
         GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
         GetComponent<Rigidbody>().freezeRotation = true;
         GetComponent<BoxCollider>().enabled = false;
+        GetComponent<MeshCollider>().enabled = false;
         //rotation = transform.rotation;
     }
 
@@ -57,5 +58,6 @@ public class Pickup : MonoBehaviour
         GetComponent<Rigidbody>().useGravity = true;
         GetComponent<BoxCollider>().enabled = true;
         GetComponent<Rigidbody>().freezeRotation = false;
+        GetComponent<MeshCollider>().enabled = true;
     }
 }

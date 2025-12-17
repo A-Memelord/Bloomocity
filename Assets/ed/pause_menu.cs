@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ingame_ui : MonoBehaviour
 {
@@ -50,7 +51,7 @@ public class ingame_ui : MonoBehaviour
 
     public void CloseGame()
     {
-        Application.Quit();
+        SceneManager.LoadScene("MainMenu");
     }
     public void PauseGame()
     {
@@ -58,6 +59,7 @@ public class ingame_ui : MonoBehaviour
         pause_menu.SetActive(true);
         Time.timeScale = 0f;
         Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
     public void ResumeGame()
     {
@@ -67,5 +69,6 @@ public class ingame_ui : MonoBehaviour
         exit_menu.SetActive(false);
         Time.timeScale = 1f;
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 }
