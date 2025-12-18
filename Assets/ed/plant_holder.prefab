@@ -50,7 +50,6 @@ MonoBehaviour:
   plant1: {fileID: 8346523316295052394, guid: 44de772260d9c3f4fbb06111a1878e32, type: 3}
   plant_detail1: {fileID: 1722430583689178289, guid: e4aeffeb2e0d6be4ebe027175f82063e, type: 3}
   root: {fileID: 7621306918654650491}
-  growth_left: 5
 --- !u!1001 &1878173665186219025
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -59,6 +58,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3898385137294607785}
     m_Modifications:
+    - target: {fileID: 2681928949651798128, guid: 44de772260d9c3f4fbb06111a1878e32, type: 3}
+      propertyPath: root
+      value: 
+      objectReference: {fileID: 7621306918654650491}
     - target: {fileID: 2681928949651798128, guid: 44de772260d9c3f4fbb06111a1878e32, type: 3}
       propertyPath: holder
       value: 

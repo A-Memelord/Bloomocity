@@ -47,8 +47,10 @@ public class MouseItemData : MonoBehaviour
 
             if (Mouse.current.leftButton.wasPressedThisFrame && !IsPointerOverUIObject())
             {
-                if(AssignedInventorySlot.ItemData.ItemPrefab != null) Instantiate(AssignedInventorySlot.ItemData.ItemPrefab, _playerTransform.position + _playerTransform.forward * _dropOffset, Quaternion.identity);
-
+                if (AssignedInventorySlot.ItemData.ItemPrefab != null)
+                {
+                    Instantiate(AssignedInventorySlot.ItemData.ItemPrefab, _playerTransform.position + _playerTransform.forward * _dropOffset, Quaternion.identity);
+                }
                 if (AssignedInventorySlot.StackSize > 1)
                 {
                     AssignedInventorySlot.AddToStack(-1);

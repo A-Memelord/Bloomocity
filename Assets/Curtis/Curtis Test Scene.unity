@@ -219377,8 +219377,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d9676f087448f647995c5f1c1f0f81f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plantPrefabs:
-  - {fileID: 8346523316295052394, guid: 44de772260d9c3f4fbb06111a1878e32, type: 3}
+  plantPrefab: {fileID: 0}
 --- !u!1 &1933538500
 GameObject:
   m_ObjectHideFlags: 0
@@ -225130,6 +225129,7 @@ GameObject:
   - component: {fileID: 2081122506}
   - component: {fileID: 2081122505}
   - component: {fileID: 2081122509}
+  - component: {fileID: 2081122510}
   m_Layer: 0
   m_Name: PlayerDetect
   m_TagString: Untagged
@@ -225337,6 +225337,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!170 &2081122510
+AudioDistortionFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2081122503}
+  m_Enabled: 1
+  m_DistortionLevel: 1
 --- !u!1001 &2082018483
 PrefabInstance:
   m_ObjectHideFlags: 0
