@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 [RequireComponent(typeof(SphereCollider))]
@@ -12,16 +11,16 @@ public class MoneyPickup : MonoBehaviour
 
     private float _rotSpeed = 250f;
 
-    public InventoryItemData ItemData;
-
     private SphereCollider myCollider;
     private Rigidbody rb;
     private Transform Player;
 
     public float amount = 1f;
 
-    [SerializeField] private ItemPickupSaveData itemSaveData;
-    private string id;
+    private void Start()
+    {
+        amount = Random.Range(5, 10);
+    }
 
     void Awake()
     {
@@ -47,7 +46,6 @@ public class MoneyPickup : MonoBehaviour
 
         float distance = Vector3.Distance(transform.position, Player.position);
         if (distance > attractionRange) return;
-
        
             // Speed scales with proximity so the motion is gentle when far and slightly stronger when close
             float t = 1f - Mathf.Clamp01(distance / attractionRange);
