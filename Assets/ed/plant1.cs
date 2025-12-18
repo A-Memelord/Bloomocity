@@ -32,6 +32,7 @@ public class plant1 : MonoBehaviour
 
     public float lifeTime;
     public GameObject plant_detail;
+    //lalalalalalala
 
     void Awake()
     {
@@ -129,6 +130,10 @@ public class plant1 : MonoBehaviour
                     new_plant_part.GetComponent<plant1>().two.transform.localScale = new Vector3(1, 0f, 1);
                     new_plant_part.GetComponent<plant1>().StartCoroutine(new_plant_part.GetComponent<plant1>().Grow());
                 }
+            }
+            if (root.GetComponent<plant1>().grow_count == 0)
+            {
+
             }
         }
     }

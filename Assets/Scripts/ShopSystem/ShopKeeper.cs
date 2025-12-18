@@ -24,9 +24,7 @@ public class ShopKeeper : MonoBehaviour, IInteractable
 
     private void Awake()
     {
-        print("Working");
         _shopSystem =new ShopSystem(_shopItemsHeld.Items.Count, _shopItemsHeld.MaxAllowedMoney, _shopItemsHeld.BuyMarkup, _shopItemsHeld.SellMarkup);
-        print("Working1");
         //foreach (var item in _shopItemsHeld.Items)
         //{
         //    print(item.ItemData.name);
@@ -47,26 +45,19 @@ public class ShopKeeper : MonoBehaviour, IInteractable
                 continue;
             }
 
-            Debug.Log("✔ Found item: " + item.ItemData.name);
-            Debug.Log("✔ Found item: " + item.ItemData.name);
+            Debug.Log("Found item: " + item.ItemData.name);
 
             _shopSystem.AddToShop(item.ItemData, item.Amount);
         }
-
-
-
-        print("Working2");
 
         if (_player == null)
         {
             _player = GameObject.FindGameObjectWithTag("Player").transform;
         }
-        print("Working3");
     }
 
     private void Update()
     {
-        print("Working4");
         if (_player == null)
         {
             _player = GameObject.FindGameObjectWithTag("Player").transform;

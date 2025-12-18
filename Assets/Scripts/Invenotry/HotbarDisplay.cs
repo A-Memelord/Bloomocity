@@ -2,22 +2,23 @@
 
 //
 // PSEUDOCODE / PLAN (detailed):
-// 1. Keep existing HotbarDisplay implementation unchanged except for the color comparison bug.
-// 2. Replace usage of (c - targetColor).sqrMagnitude which is invalid for UnityEngine.Color.
-// 3. Compute squared color distance manually by subtracting RGBA components and summing squares.
-//    - dr = c.r - targetColor.r
-//    - dg = c.g - targetColor.g
-//    - db = c.b - targetColor.b
-//    - da = c.a - targetColor.a
-//    - sqrDist = dr*dr + dg*dg + db*db + da*da
-// 4. Compare sqrDist with ColorToleranceSqr to decide validity.
-// 5. Return same boolean semantics as before.
-// 6. Leave all other logic intact to avoid changing behavior.
-// 
-// Implementation note: using manual component math avoids reliance on Vector types or extension methods
-// and fixes CS1061 error: 'Color' does not contain a definition for 'sqrMagnitude'.
+// 1. Keep existing HotbarDisplay implementation unchanged except add a support (ground) check to prevent placement in mid-air.
+// 2. Modify UpdatePreviewValidity to:
+//    a) After computing bounds and doing the overlap tests (or the fallback sphere test), ensure the preview is actually supported by ground or another non-preview collider beneath it.
+//    b) Compute a sensible raycast origin and distance:
+//       - When renderers exist: use the combined bounds center and halfExtents to compute a downward distance to check for support (halfExtents.y + small margin).
+//       - When no renderers: use the target position and a reasonable fallback distance (e.g., 1.0f).
+//    c) Raycast downward using QueryTriggerInteraction.Ignore and full layer mask (~0). If the first hit is not part of the preview instance, consider that a valid support.
+//    d) If no valid support is found, return false (placement invalid).
+// 3. Keep ignoring ground/terrain in overlap checks so ground doesn't count as blocking, but accept ground/terrain (or any non-preview collider) as valid support for the support check.
+// 4. Ensure colliders that belong to the preview instance are ignored in both overlap and support raycast checks.
+// 5. Preserve existing semantics otherwise and do not alter color-checking or material application logic.
 //
-
+// Implementation notes:
+// - Use Mathf.Max to ensure a minimum support check distance.
+// - Use Physics.Raycast with QueryTriggerInteraction.Ignore to avoid trigger-only hits.
+// - This fixes "can place in the air" by requiring that preview have a supporting collider under it within a small distance.
+//
 public class HotbarDisplay : StaticInventoryDisplay
 {
     private int _maxIndexSize;
@@ -50,7 +51,7 @@ public class HotbarDisplay : StaticInventoryDisplay
         _maxIndexSize = slots.Length - 1;
 
         slots[_currentIndex].ToggleHighlight();
-        Debug.Log("✅ HotbarDisplay started. Slots found: " + slots.Length);
+        Debug.Log("HotbarDisplay started. Slots found: " + slots.Length);
     }
 
     void OnDisable()
@@ -272,7 +273,7 @@ public class HotbarDisplay : StaticInventoryDisplay
     }
 
     // Check whether placing at the given world position would collide with other (non-preview) colliders.
-    // Returns true if valid (no blocking collisions), false if invalid.
+    // Returns true if valid (no blocking collisions AND supported by ground), false if invalid.
     private bool UpdatePreviewValidity(Vector3 targetPos)
     {
         if (_seedPlacingInstance == null) return false;
@@ -296,7 +297,24 @@ public class HotbarDisplay : StaticInventoryDisplay
             // Guard: if extents are degenerate, fall back to a small sphere test
             if (halfExtents.sqrMagnitude < 1e-6f)
             {
-                return !Physics.CheckSphere(targetPos, 0.25f, ~0, QueryTriggerInteraction.Ignore);
+                // Sphere overlap to check blocking colliders
+                if (Physics.CheckSphere(targetPos, 0.25f, ~0, QueryTriggerInteraction.Ignore))
+                    return false;
+
+                // Also require support beneath the preview
+                float supportDistanceFallback = 1.0f;
+                Vector3 originFallback = targetPos + Vector3.up * 0.1f;
+                if (Physics.Raycast(originFallback, Vector3.down, out RaycastHit fallHit, supportDistanceFallback, ~0, QueryTriggerInteraction.Ignore))
+                {
+                    if (_seedPlacingInstance != null && fallHit.collider != null && fallHit.collider.transform.IsChildOf(_seedPlacingInstance.transform))
+                    {
+                        return false; // hit the preview itself - treat as unsupported
+                    }
+
+                    return true; // hit some other collider -> supported & no blocking overlaps
+                }
+
+                return false; // no support found -> invalid
             }
 
             // OverlapBox to detect potential blocking colliders.
@@ -310,15 +328,29 @@ public class HotbarDisplay : StaticInventoryDisplay
                 if (_seedPlacingInstance != null && c.transform.IsChildOf(_seedPlacingInstance.transform)) continue;
 
                 // Optionally ignore common ground/terrain tags so normal ground doesn't prevent placement.
-                // If your ground uses a different tag or layer, adjust accordingly.
                 if (c.gameObject.CompareTag("Ground") || c.gameObject.CompareTag("Terrain")) continue;
 
                 // If we find any other collider, placement is invalid
                 return false;
             }
 
-            // No blocking colliders found -> valid
-            return true;
+            // No blocking colliders found -> check that preview is supported (has ground/other collider beneath it)
+            float supportCheckDistance = Mathf.Max(0.5f, halfExtents.y + 0.1f);
+            // Raycast from center downward
+            if (Physics.Raycast(center, Vector3.down, out RaycastHit groundHit, supportCheckDistance, ~0, QueryTriggerInteraction.Ignore))
+            {
+                if (_seedPlacingInstance != null && groundHit.collider != null && groundHit.collider.transform.IsChildOf(_seedPlacingInstance.transform))
+                {
+                    // Hit the preview itself -> not supported
+                    return false;
+                }
+
+                // Hit something else -> supported
+                return true;
+            }
+
+            // Nothing hit beneath -> unsupported (floating) -> invalid
+            return false;
         }
         else
         {
@@ -333,7 +365,20 @@ public class HotbarDisplay : StaticInventoryDisplay
                 return false;
             }
 
-            return true;
+            // Also require a downward raycast to confirm support (avoid placing in mid-air)
+            float supportDistance = 1.0f;
+            Vector3 origin = targetPos + Vector3.up * 0.1f;
+            if (Physics.Raycast(origin, Vector3.down, out RaycastHit groundHitFallback, supportDistance, ~0, QueryTriggerInteraction.Ignore))
+            {
+                if (_seedPlacingInstance != null && groundHitFallback.collider != null && groundHitFallback.collider.transform.IsChildOf(_seedPlacingInstance.transform))
+                {
+                    return false;
+                }
+
+                return true;
+            }
+
+            return false;
         }
     }
 
@@ -433,7 +478,7 @@ public class HotbarDisplay : StaticInventoryDisplay
         if (_currentIndex < 0) _currentIndex = _maxIndexSize;
 
         slots[_currentIndex].ToggleHighlight();
-        Debug.Log("🎯 Hotbar index = " + _currentIndex);
+        Debug.Log("Hotbar index = " + _currentIndex);
     }
 
     void SetIndex(int newIndex)
