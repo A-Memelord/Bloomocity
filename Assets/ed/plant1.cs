@@ -34,6 +34,9 @@ public class plant1 : MonoBehaviour
     public GameObject plant_detail;
     //lalalalalalala
 
+    public GameObject MoneyPrefab;
+
+
     void Awake()
     {
         if (is_root)
@@ -133,7 +136,8 @@ public class plant1 : MonoBehaviour
             }
             if (root.GetComponent<plant1>().grow_count == 0)
             {
-
+                GameObject MoneyPre = Instantiate(MoneyPrefab, root.transform);
+                MoneyPre.transform.SetParent(null);
             }
         }
     }
