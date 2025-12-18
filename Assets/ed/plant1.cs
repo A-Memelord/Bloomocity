@@ -73,10 +73,8 @@ public class plant1 : MonoBehaviour
                     }
                 }
             }
-            //root.GetComponent<plant1>().add_data(new Vector3(growth, 0, 0));
 
             two.transform.rotation = Quaternion.Euler(random.NextFloat(-45, 45), random.NextFloat(-45, 45), random.NextFloat(-45, 45));
-            //root.GetComponent<plant1>().add_data(two.transform.eulerAngles);
             float difference2 = random.NextFloat(0.1f, 0.2f);
             float growth2 = random.NextFloat(0.5f, 0.8f);
             length2 = growth2;

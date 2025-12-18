@@ -20,6 +20,7 @@ public class plant1_saver : MonoBehaviour
     public GameObject plant1;
     public GameObject plant_detail1;
     public GameObject root;
+    public Material plant_color;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -36,6 +37,7 @@ public class plant1_saver : MonoBehaviour
         }
         root.GetComponent<plant1>().grow_count = 5 - plant_data.Count;
         root.GetComponent<plant1>().StartCoroutine(root.GetComponent<plant1>().Grow());
+        root.GetComponent<plant1>().stem.GetComponent<SkinnedMeshRenderer>().material = plant_color;
         // StartCoroutine(save_plant());
         //if (plant_data != null)
         //{
@@ -102,11 +104,13 @@ public class plant1_saver : MonoBehaviour
             new_plant1.GetComponent<plant1>().one.transform.localScale = new Vector3(1, plant_data[i].stem_1_scale.y, 1);
             new_plant1.GetComponent<plant1>().two.transform.eulerAngles = plant_data[i].stem_2_rot;
             new_plant1.GetComponent<plant1>().two.transform.localScale = new Vector3(1, plant_data[i].stem_2_scale.y, 1);
+            new_plant1.GetComponent<plant1>().stem.GetComponent<SkinnedMeshRenderer>().material = plant_color;
         }
 
         for (int i = 0; i < plant_detail_data.Count; i++)
         {
             GameObject new_plant_detail1 = Instantiate(plant_detail1, plant_detail_data[i], Quaternion.Euler(plant_detail_data[i]), transform);
+            new_plant_detail1.GetComponent<plant_detail1>().stem.GetComponent<MeshRenderer>().material = plant_color;
         }
 
         if (plant_data.Count != 0)
@@ -117,6 +121,7 @@ public class plant1_saver : MonoBehaviour
             continued_plant.GetComponent<plant1>().is_root = true;
             continued_plant.GetComponent<plant1>().holder = this.gameObject;
             continued_plant.GetComponent<plant1>().StartCoroutine(continued_plant.GetComponent<plant1>().Grow());
+            continued_plant.GetComponent<plant1>().stem.GetComponent<SkinnedMeshRenderer>().material = plant_color;
         }
     }
 
