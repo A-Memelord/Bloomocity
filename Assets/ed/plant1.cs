@@ -32,6 +32,7 @@ public class plant1 : MonoBehaviour
 
     public float lifeTime;
     public GameObject plant_detail;
+    //lalalalalalala
 
     void Awake()
     {
