@@ -22,7 +22,6 @@ public class plant1 : MonoBehaviour
     public GameObject holder;
 
     public int grow_count = 5;
-    public GameObject current_stem;
 
     public int plantType = 1;
     public int seed;
@@ -34,23 +33,7 @@ public class plant1 : MonoBehaviour
     public float lifeTime;
     public GameObject plant_detail;
 
-    private void OnDestroy()
-    {
-        if (is_root)
-        {
-            SaveDataController.Instance.CurrentData.plantedPlants.Add(new PlantSaveData
-            {
-                plantType = this.plantType,
-                seed = this.seed,
-                pos = this.transform.position,
-                rot = this.transform.rotation,
-                scale = this.transform.localScale,
-                lifeTime = this.lifeTime
-            });
-        }
-    }
-
-    void Start()
+    void Awake()
     {
         if (is_root)
         {
@@ -90,10 +73,8 @@ public class plant1 : MonoBehaviour
                     }
                 }
             }
-            //root.GetComponent<plant1>().add_data(new Vector3(growth, 0, 0));
 
             two.transform.rotation = Quaternion.Euler(random.NextFloat(-45, 45), random.NextFloat(-45, 45), random.NextFloat(-45, 45));
-            //root.GetComponent<plant1>().add_data(two.transform.eulerAngles);
             float difference2 = random.NextFloat(0.1f, 0.2f);
             float growth2 = random.NextFloat(0.5f, 0.8f);
             length2 = growth2;
@@ -147,7 +128,6 @@ public class plant1 : MonoBehaviour
                     new_plant_part.GetComponent<plant1>().one.transform.localScale = new Vector3(1, 0.01f, 1);
                     new_plant_part.GetComponent<plant1>().two.transform.localScale = new Vector3(1, 0f, 1);
                     new_plant_part.GetComponent<plant1>().StartCoroutine(new_plant_part.GetComponent<plant1>().Grow());
-                    current_stem = new_plant_part;
                 }
             }
             if (root.GetComponent<plant1>().grow_count == 0)
