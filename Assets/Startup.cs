@@ -11,6 +11,8 @@ public class Startup : MonoBehaviour
     public void SaveFullGame()
     {
         saveDataController.Save();
+
+        // TODO: Anthony, this gets called twice for some reason, the first time it works and the second time it only serializes 2 values. Use breakpoints to figure out why.
         SaveGameManager.SaveInvData();
     }
 

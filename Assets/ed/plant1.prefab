@@ -52,15 +52,17 @@ MonoBehaviour:
   one: {fileID: 1258652338267788626}
   two: {fileID: 6231298417512300717}
   three: {fileID: 1618217872687973223}
+  length1: 0
+  length2: 0
   root: {fileID: 0}
   holder: {fileID: 0}
   grow_count: 5
   plantType: 0
   seed: 3
   is_root: 1
-  root_plant_data: []
   lifeTime: 0
   plant_detail: {fileID: 1722430583689178289, guid: e4aeffeb2e0d6be4ebe027175f82063e, type: 3}
+  MoneyPrefab: {fileID: 6613944843177479882, guid: 2ba8c86180e5a0144874a43f1aa44f4f, type: 3}
 --- !u!1001 &5666098106136615159
 PrefabInstance:
   m_ObjectHideFlags: 0
