@@ -44,10 +44,8 @@ public class SaveData
 public struct PlantSaveData
 {
     public int plantType;
-    public int seed;
     public Vector3 pos;
     public Quaternion rot;
-    public Vector3 scale;
-    public float lifeTime;
-    public List<Vector3> rootPlantData;
+    public List<Data> rootPlantData;
+    public List<Vector3> plantDetailData;
 }

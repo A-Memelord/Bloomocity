@@ -20,21 +20,24 @@ public class plant1_saver : MonoBehaviour
     public GameObject plant1;
     public GameObject plant_detail1;
     public GameObject root;
+    public Material plant_color;
 
-    public int growth_left = 5;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        Debug.Log("plant1_saver started");
+
         if (plant_data.Count == 0)
         {
-            root.GetComponent<plant1>().grow_count = growth_left;
-            root.GetComponent<plant1>().StartCoroutine(root.GetComponent<plant1>().Grow());
-            StartCoroutine(save_plant());
+            InvokeRepeating(nameof(save_plant), 10f, 10f);
         }
         else
         {
-            load_plant();
+            load_plant(plant_data, plant_detail_data);
         }
+        root.GetComponent<plant1>().grow_count = 5 - plant_data.Count;
+        root.GetComponent<plant1>().StartCoroutine(root.GetComponent<plant1>().Grow());
+        root.GetComponent<plant1>().stem.GetComponent<SkinnedMeshRenderer>().material = plant_color;
         // StartCoroutine(save_plant());
         //if (plant_data != null)
         //{
@@ -43,14 +46,22 @@ public class plant1_saver : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void OnDestroy()
     {
+        save_plant();
 
+        SaveDataController.Instance.CurrentData.plantedPlants.Add(new()
+        {
+            plantType = 1,
+            pos = transform.position,
+            rot = transform.rotation,
+            rootPlantData = plant_data,
+            plantDetailData = plant_detail_data
+        });
     }
 
-    public IEnumerator save_plant()
+    public void save_plant()
     {
-        yield return new WaitForSeconds(10f);
         plant_data.Clear();
         plant_detail_data.Clear();
 
@@ -75,12 +86,13 @@ public class plant1_saver : MonoBehaviour
                 plant_detail_data.Add(child.GetComponent<plant_detail1>().transform.position);
             }
         }
-        growth_left = root.GetComponent<plant1>().grow_count;
-        StartCoroutine(save_plant());
     }
 
-    public void load_plant()
+    public void load_plant(List<Data> data, List<Vector3> detail)
     {
+        plant_data = data;
+        plant_detail_data = detail;
+
         foreach (Transform child in transform)
         {
             Destroy(child.gameObject);
@@ -92,21 +104,24 @@ public class plant1_saver : MonoBehaviour
             new_plant1.GetComponent<plant1>().one.transform.localScale = new Vector3(1, plant_data[i].stem_1_scale.y, 1);
             new_plant1.GetComponent<plant1>().two.transform.eulerAngles = plant_data[i].stem_2_rot;
             new_plant1.GetComponent<plant1>().two.transform.localScale = new Vector3(1, plant_data[i].stem_2_scale.y, 1);
+            new_plant1.GetComponent<plant1>().stem.GetComponent<SkinnedMeshRenderer>().material = plant_color;
         }
 
         for (int i = 0; i < plant_detail_data.Count; i++)
         {
             GameObject new_plant_detail1 = Instantiate(plant_detail1, plant_detail_data[i], Quaternion.Euler(plant_detail_data[i]), transform);
+            new_plant_detail1.GetComponent<plant_detail1>().stem.GetComponent<MeshRenderer>().material = plant_color;
         }
 
-        if (growth_left != 0)
+        if (plant_data.Count != 0)
         {
             GameObject continued_plant = Instantiate(plant1, plant_data[^1].stem_2_endpos, Quaternion.Euler(plant_data[^1].stem_2_rot), transform);
-            continued_plant.GetComponent<plant1>().grow_count = growth_left;
+            continued_plant.GetComponent<plant1>().grow_count = plant_data.Count;
             continued_plant.GetComponent<plant1>().root = continued_plant;
             continued_plant.GetComponent<plant1>().is_root = true;
             continued_plant.GetComponent<plant1>().holder = this.gameObject;
             continued_plant.GetComponent<plant1>().StartCoroutine(continued_plant.GetComponent<plant1>().Grow());
+            continued_plant.GetComponent<plant1>().stem.GetComponent<SkinnedMeshRenderer>().material = plant_color;
         }
     }
 
