@@ -19,6 +19,7 @@ public class SerializableDictionary<TKey, TValue> : Dictionary<TKey, TValue>, IS
             keys.Add(pair.Key);
             values.Add(pair.Value);
         }
+        Debug.Log($"Serialized dictionary with {keys.Count} entries.");
     }
 
     // Load dictionary from lists

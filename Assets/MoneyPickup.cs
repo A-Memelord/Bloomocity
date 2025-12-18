@@ -65,7 +65,10 @@ public class MoneyPickup : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        SaveDataController.Instance.CurrentData.Money += amount;
-        Destroy(this.gameObject);
+        if (other.gameObject.tag == "Player")
+        {
+            SaveDataController.Instance.CurrentData.Money += amount;
+            Destroy(this.gameObject);
+        }
     }
 }

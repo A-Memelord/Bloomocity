@@ -39,7 +39,7 @@ public class PlantShop : MonoBehaviour
 
     void Update()
     {
-        plantSellValue = InventoryItemData.value * 2f;
+        plantSellValue = InventoryItemData.value / 2f;
 
         if (_buyBool == true)
         {
