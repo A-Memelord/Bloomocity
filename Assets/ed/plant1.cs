@@ -131,6 +131,10 @@ public class plant1 : MonoBehaviour
                     new_plant_part.GetComponent<plant1>().StartCoroutine(new_plant_part.GetComponent<plant1>().Grow());
                 }
             }
+            if (root.GetComponent<plant1>().grow_count == 0)
+            {
+
+            }
         }
     }
 
