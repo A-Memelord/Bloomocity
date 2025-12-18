@@ -150,6 +150,10 @@ public class plant1 : MonoBehaviour
                     current_stem = new_plant_part;
                 }
             }
+            if (root.GetComponent<plant1>().grow_count == 0)
+            {
+
+            }
         }
     }
 
