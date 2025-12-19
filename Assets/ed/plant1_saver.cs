@@ -33,7 +33,7 @@ public class plant1_saver : MonoBehaviour
         }
         else
         {
-            load_plant(plant_data, plant_detail_data);
+            load_plant(plant_data, plant_detail_data, plant_color);
         }
         root.GetComponent<plant1>().grow_count = 5 - plant_data.Count;
         root.GetComponent<plant1>().StartCoroutine(root.GetComponent<plant1>().Grow());
@@ -52,7 +52,7 @@ public class plant1_saver : MonoBehaviour
 
         SaveDataController.Instance.CurrentData.plantedPlants.Add(new()
         {
-            plantType = 1,
+            plantColor = plant_color,
             pos = transform.position,
             rot = transform.rotation,
             rootPlantData = plant_data,
@@ -88,10 +88,12 @@ public class plant1_saver : MonoBehaviour
         }
     }
 
-    public void load_plant(List<Data> data, List<Vector3> detail)
+    public void load_plant(List<Data> data, List<Vector3> detail, Material mat)
     {
         plant_data = data;
         plant_detail_data = detail;
+        plant_color = mat;
+        bool plant_was_loaded = false;
 
         foreach (Transform child in transform)
         {
@@ -100,6 +102,7 @@ public class plant1_saver : MonoBehaviour
         }
         for (int i = 0; i < plant_data.Count; i++)
         {
+            plant_was_loaded = true;
             GameObject new_plant1 = Instantiate(plant1, plant_data[i].stem_1_pos, Quaternion.Euler(plant_data[i].stem_1_rot), transform);
             new_plant1.GetComponent<plant1>().one.transform.localScale = new Vector3(1, plant_data[i].stem_1_scale.y, 1);
             new_plant1.GetComponent<plant1>().two.transform.eulerAngles = plant_data[i].stem_2_rot;
@@ -113,7 +116,7 @@ public class plant1_saver : MonoBehaviour
             new_plant_detail1.GetComponent<plant_detail1>().stem.GetComponent<MeshRenderer>().material = plant_color;
         }
 
-        if (plant_data.Count != 0)
+        if (plant_data.Count != 0 && plant_was_loaded == false)
         {
             GameObject continued_plant = Instantiate(plant1, plant_data[^1].stem_2_endpos, Quaternion.Euler(plant_data[^1].stem_2_rot), transform);
             continued_plant.GetComponent<plant1>().grow_count = plant_data.Count;

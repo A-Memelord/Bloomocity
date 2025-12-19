@@ -20,7 +20,7 @@ public class PlantManager : MonoBehaviour
 
             Debug.Log("Loading plant at position: " + plantData.pos);
 
-            plantInstance.GetComponent<plant1_saver>().load_plant(plantData.rootPlantData, plantData.plantDetailData);
+            plantInstance.GetComponent<plant1_saver>().load_plant(plantData.rootPlantData, plantData.plantDetailData, plantData.plantColor);
 
             Debug.Log("Plant loaded with root data count: " + plantData.rootPlantData.Count);
         }
