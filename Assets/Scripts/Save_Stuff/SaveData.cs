@@ -43,7 +43,7 @@ public class SaveData
 [System.Serializable]
 public struct PlantSaveData
 {
-    public int plantType;
+    public Material plantColor;
     public Vector3 pos;
     public Quaternion rot;
     public List<Data> rootPlantData;
