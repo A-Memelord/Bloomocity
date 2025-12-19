@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 00a09a65f667ff54199cfbab759ffe3f, type: 3}
-  m_Name: Plant 1 Seed
+  m_Name: PinkPlant
   m_EditorClassIdentifier: 
   ID: 1
   maxStackSize: 5
   icon: {fileID: 21300000, guid: f49ad54ed691d31469fd5a715ade152d, type: 3}
-  itemName: Plant 1 Seed
+  itemName: Pink Plant
   description: This is a plant Seed
-  Cost: 0
+  Cost: 10
   ItemPrefab: {fileID: 0}
   PlacedPrefab: {fileID: 3819797060949006621, guid: c30fdd8a3b88e9241864aacce273f820, type: 3}
   value: 10
