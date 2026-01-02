@@ -50,7 +50,7 @@ MonoBehaviour:
   plant1: {fileID: 8346523316295052394, guid: 44de772260d9c3f4fbb06111a1878e32, type: 3}
   plant_detail1: {fileID: 1722430583689178289, guid: e4aeffeb2e0d6be4ebe027175f82063e, type: 3}
   root: {fileID: 7621306918654650491}
-  plant_color: {fileID: 2100000, guid: 5c0e4faeba6406348b985b04327c328a, type: 2}
+  plant_color: {fileID: 2100000, guid: 29340b0cbece2644f87a1ee0bd25849c, type: 2}
 --- !u!1001 &1878173665186219025
 PrefabInstance:
   m_ObjectHideFlags: 0

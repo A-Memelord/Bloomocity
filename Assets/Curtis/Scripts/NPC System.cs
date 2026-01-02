@@ -1,4 +1,3 @@
-using System.Xml.Serialization;
 using UnityEngine;
 
 public class NPCSystem : MonoBehaviour
@@ -8,14 +7,9 @@ public class NPCSystem : MonoBehaviour
 
     public static NPCSystem current;
 
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
-        if (playerDetection && Input.GetKeyDown(KeyCode.F))
+        if (playerDetection && Input.GetKeyDown(KeyCode.E))
         {
             Meow.Play();
             print("Dialogue Started");
