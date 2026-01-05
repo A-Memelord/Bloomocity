@@ -32,7 +32,8 @@ public class plant1 : MonoBehaviour
 
     public float lifeTime;
     public GameObject plant_detail;
-    //lalalalalalala
+
+    public InventoryItemData plantValues;
 
     public GameObject MoneyPrefab;
 
@@ -137,6 +138,8 @@ public class plant1 : MonoBehaviour
             if (root.GetComponent<plant1>().grow_count == 0)
             {
                 GameObject MoneyPre = Instantiate(MoneyPrefab, root.transform);
+                MoneyPre.transform.GetComponent<MoneyPickup>().amount = (float)plantValues.value / 2f;
+                print("Money spawned: " + MoneyPre.transform.GetComponent<MoneyPickup>().amount);
                 MoneyPre.transform.SetParent(null);
             }
         }

@@ -67,6 +67,10 @@ PrefabInstance:
       propertyPath: holder
       value: 
       objectReference: {fileID: 3819797060949006621}
+    - target: {fileID: 2681928949651798128, guid: 44de772260d9c3f4fbb06111a1878e32, type: 3}
+      propertyPath: plantValues
+      value: 
+      objectReference: {fileID: 11400000, guid: 0038baee881d79f4faff3dd0748e8a90, type: 2}
     - target: {fileID: 6028763544954510045, guid: 44de772260d9c3f4fbb06111a1878e32, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
