@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(SphereCollider))]
@@ -15,12 +16,7 @@ public class MoneyPickup : MonoBehaviour
     private Rigidbody rb;
     private Transform Player;
 
-    public float amount = 1f;
-
-    private void Start()
-    {
-        amount = Random.Range(5, 10);
-    }
+    public float amount;
 
     void Awake()
     {
@@ -67,7 +63,7 @@ public class MoneyPickup : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            SaveDataController.Instance.CurrentData.Money += amount;
+            SaveDataController.Instance.CurrentData.Money += amount + Random.Range(1, 10);
             Destroy(this.gameObject);
         }
     }
