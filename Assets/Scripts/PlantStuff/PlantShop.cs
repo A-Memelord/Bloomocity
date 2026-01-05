@@ -20,6 +20,7 @@ public class PlantShop : MonoBehaviour
 
     void Start()
     {
+        plantNameText.text = InventoryItemData.itemName;
         plantCostText.text = "$" + InventoryItemData.value.ToString();
         buttonText.text = "Buy";
         interactButton.GetComponent<Image>().color = Color.green;
@@ -29,7 +30,6 @@ public class PlantShop : MonoBehaviour
 
     void Update()
     {
-        plantNameText.text = InventoryItemData.itemName;
         _buyBool = ShopKeeper.instance.buyBool;
 
         plantSellValue = InventoryItemData.value / 2f;
