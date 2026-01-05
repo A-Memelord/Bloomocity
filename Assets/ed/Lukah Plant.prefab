@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3898385137294607785}
   - component: {fileID: 3906595195463108230}
   m_Layer: 0
-  m_Name: PinkPlant
+  m_Name: Lukah Plant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
