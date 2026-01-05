@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PickupRadius: 1
-  attractionRange: 3.5
+  attractionRange: 7
   attractionSpeed: 10
   amount: 1
 --- !u!135 &8468149405176029641

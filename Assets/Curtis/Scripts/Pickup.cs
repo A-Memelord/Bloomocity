@@ -41,6 +41,7 @@ public class Pickup : MonoBehaviour
             pickupPoint.position = transform.position;
         }
         transform.parent = pickupPoint.transform;
+        transform.parent.rotation = Quaternion.Euler(-90, 0, 0);
         GetComponent<Rigidbody>().useGravity = false;
         GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
         GetComponent<Rigidbody>().freezeRotation = true;

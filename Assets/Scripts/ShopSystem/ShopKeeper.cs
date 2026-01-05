@@ -8,6 +8,8 @@ public class ShopKeeper : MonoBehaviour, IInteractable
     [SerializeField] private ShopItemList _shopItemsHeld;
     [SerializeField, HideInInspector] private ShopSystem _shopSystem;
 
+    public static ShopKeeper instance;
+
     public GameObject shopUI;
     private Transform _player;
     public TMP_Text shopToggle;
@@ -24,6 +26,7 @@ public class ShopKeeper : MonoBehaviour, IInteractable
 
     private void Awake()
     {
+        instance = this;
         _shopSystem =new ShopSystem(_shopItemsHeld.Items.Count, _shopItemsHeld.MaxAllowedMoney, _shopItemsHeld.BuyMarkup, _shopItemsHeld.SellMarkup);
         //foreach (var item in _shopItemsHeld.Items)
         //{
@@ -101,7 +104,7 @@ public class ShopKeeper : MonoBehaviour, IInteractable
             shopToggle.color = Color.red;
         }
 
-        PlantShop.instance.ChangeBool(buyBool);
+        //PlantShop.instance.ChangeBool(buyBool);
     }
 
     public UnityAction<IInteractable> OnInteractionComplete { get; set; }
