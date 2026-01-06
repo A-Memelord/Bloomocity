@@ -31043,9 +31043,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1274717746883629090, guid: c057ffb8edd70014fb0109e4137b18fc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 589472602}
-    - targetCorrespondingSourceObject: {fileID: 1274717746883629090, guid: c057ffb8edd70014fb0109e4137b18fc, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 589472606}
   m_SourcePrefab: {fileID: 100100000, guid: c057ffb8edd70014fb0109e4137b18fc, type: 3}
 --- !u!1 &589472592 stripped
 GameObject:
@@ -31152,19 +31149,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 3295526214733387374, guid: c7b518cde4804c4468b9558c3bcc352a, type: 3}
---- !u!114 &589472606
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 589472592}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe0e2a9aad8ef8340a82a4ab136d31b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  message: Left Click to interact
 --- !u!1 &589699796
 GameObject:
   m_ObjectHideFlags: 0
@@ -44646,9 +44630,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1274717746883629090, guid: c057ffb8edd70014fb0109e4137b18fc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 947717134}
-    - targetCorrespondingSourceObject: {fileID: 1274717746883629090, guid: c057ffb8edd70014fb0109e4137b18fc, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 947717138}
   m_SourcePrefab: {fileID: 100100000, guid: c057ffb8edd70014fb0109e4137b18fc, type: 3}
 --- !u!1 &947717124 stripped
 GameObject:
@@ -44742,19 +44723,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 3295526214733387374, guid: c7b518cde4804c4468b9558c3bcc352a, type: 3}
---- !u!114 &947717138
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 947717124}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe0e2a9aad8ef8340a82a4ab136d31b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  message: Left Click to interact
 --- !u!43 &957032934
 Mesh:
   m_ObjectHideFlags: 0
@@ -65152,9 +65120,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5248171564757293184, guid: 6cb7e7b775cac4a41b9402dc3b1c9d91, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1274514749}
-    - targetCorrespondingSourceObject: {fileID: 5248171564757293184, guid: 6cb7e7b775cac4a41b9402dc3b1c9d91, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1274514754}
   m_SourcePrefab: {fileID: 100100000, guid: 6cb7e7b775cac4a41b9402dc3b1c9d91, type: 3}
 --- !u!1 &1274514748 stripped
 GameObject:
@@ -65181,19 +65146,6 @@ MonoBehaviour:
   m_IgnoreFromBuild: 1
   m_ApplyToChildren: 1
   m_AffectedAgents: ffffffff
---- !u!114 &1274514754
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1274514748}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe0e2a9aad8ef8340a82a4ab136d31b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  message: E to interact
 --- !u!1 &1275063711
 GameObject:
   m_ObjectHideFlags: 0
@@ -70107,9 +70059,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1274717746883629090, guid: c057ffb8edd70014fb0109e4137b18fc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1400324626}
-    - targetCorrespondingSourceObject: {fileID: 1274717746883629090, guid: c057ffb8edd70014fb0109e4137b18fc, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1400324630}
   m_SourcePrefab: {fileID: 100100000, guid: c057ffb8edd70014fb0109e4137b18fc, type: 3}
 --- !u!1 &1400324616 stripped
 GameObject:
@@ -70216,19 +70165,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 3295526214733387374, guid: c7b518cde4804c4468b9558c3bcc352a, type: 3}
---- !u!114 &1400324630
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1400324616}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe0e2a9aad8ef8340a82a4ab136d31b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  message: Left Click to interact
 --- !u!1 &1405827413
 GameObject:
   m_ObjectHideFlags: 0
@@ -73946,9 +73882,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5838365809253970787, guid: 5a9989bfd3f9ade43b5177c7183163b9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1490033387}
-    - targetCorrespondingSourceObject: {fileID: 5838365809253970787, guid: 5a9989bfd3f9ade43b5177c7183163b9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1490033392}
   m_SourcePrefab: {fileID: 100100000, guid: 5a9989bfd3f9ade43b5177c7183163b9, type: 3}
 --- !u!1 &1490033386 stripped
 GameObject:
@@ -73975,19 +73908,6 @@ MonoBehaviour:
   m_IgnoreFromBuild: 1
   m_ApplyToChildren: 1
   m_AffectedAgents: ffffffff
---- !u!114 &1490033392
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1490033386}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe0e2a9aad8ef8340a82a4ab136d31b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  message: E to interact
 --- !u!1001 &1496846268
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -94135,9 +94055,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1274717746883629090, guid: c057ffb8edd70014fb0109e4137b18fc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2110942371}
-    - targetCorrespondingSourceObject: {fileID: 1274717746883629090, guid: c057ffb8edd70014fb0109e4137b18fc, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2110942375}
   m_SourcePrefab: {fileID: 100100000, guid: c057ffb8edd70014fb0109e4137b18fc, type: 3}
 --- !u!1 &2110942361 stripped
 GameObject:
@@ -94244,19 +94161,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 3295526214733387374, guid: c7b518cde4804c4468b9558c3bcc352a, type: 3}
---- !u!114 &2110942375
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2110942361}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe0e2a9aad8ef8340a82a4ab136d31b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  message: Left Click to interact
 --- !u!43 &2111454044
 Mesh:
   m_ObjectHideFlags: 0
