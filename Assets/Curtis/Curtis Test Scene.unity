@@ -67575,7 +67575,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 774.91345, y: -469.4}
+  m_AnchoredPosition: {x: 774.91345, y: -438}
   m_SizeDelta: {x: 370.1731, y: 125.8279}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1325608458
@@ -67607,7 +67607,10 @@ MonoBehaviour:
 
     0 - 9 - For Inventory Slots
 
-    Mouse Wheels - For Inventory Slots'
+    Mouse Wheels - For Inventory Slots
+
+    B
+    - Open Inventory'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 188ecd796d1e67046badf2476dab0cb0, type: 2}
   m_sharedMaterial: {fileID: -1761709675318924376, guid: 188ecd796d1e67046badf2476dab0cb0, type: 2}
@@ -67672,7 +67675,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 0, w: -29.110104}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
