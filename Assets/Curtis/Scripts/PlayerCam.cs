@@ -12,6 +12,7 @@ public class PlayerCam : MonoBehaviour
     float yRotation;
 
     bool cameraEnabled = true;
+    private bool firstFrame = true;
 
     private void Awake()
     {
@@ -27,7 +28,7 @@ public class PlayerCam : MonoBehaviour
     {
         cameraEnabled = locked;
 
-        if (locked)
+        if (cameraEnabled)
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
@@ -41,6 +42,14 @@ public class PlayerCam : MonoBehaviour
 
     void Update()
     {
+        // Ensure cursor lock is applied once when the game gains focus
+        if (firstFrame)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            firstFrame = false;
+        }
+
         if (!cameraEnabled)
             return; // 🔥 stops camera movement completely when UI is open
 
